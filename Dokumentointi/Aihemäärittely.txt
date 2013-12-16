@@ -1,0 +1,16 @@
+﻿Aihe: Breakout peli
+Toteutetaan peli jossa pelaajalla on “maila” ruudun alareunassa jota voi liikutella vasemmalle tai oikealle. Pelissä on myös pallo joka liikkuu ylös tai alas, sivuttaista liikettä on mutta ei suoraan vasemmalle tai oikealle. Pelin alussa pelialueen ylä osioon ilmestyy laatikoita/palikoita, joita pelaajan on tarkoitus rikkoa pallolla mailaa avuksi käyttäen. 
+
+
+Pelaaja pääsee tasosta/pelistä läpi kun kaikki palikat on rikottu, palikat vaativat yhden tai useamman osuman rikkoutuakseen, aina kun palikka rikkoutuu saa pelaaja pisteitä. Jos pelaajalta pääsee pallo tippumaan mailan alapuolelle menettää hän elämän, jos elämiä on jäljellä alle 1 peli loppuu. 
+
+
+
+
+Käyttäjien toimintoja, ohjelmistolla on vain yksi käyttäjä ja se on pelaaja
+
+
+Valikossa valinnan teko
+* Valitse uusi peli, ohjeet, poistu
+Liikuta mailaa
+* Hiirellä, näppäimistöllä vai molemmilla? !!! MUISTA KORJATA !!!
