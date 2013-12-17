@@ -32,7 +32,7 @@ public class PlayerTest {
 
     @Test
     public void losingLivesWorks() {
-        player.loseLives();
+        player.loseLife();
         checkStats(2, 0);
     }
 

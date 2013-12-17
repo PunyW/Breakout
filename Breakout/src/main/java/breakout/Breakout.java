@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import sprites.Ball;
 import sprites.Paddle;
 import ui.Updatable;
+import util.BallWallCollision;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Breakout extends Timer implements ActionListener {
     private Ball ball;
     private Paddle paddle;
     private Updatable updatable;
+    private BallWallCollision bwl;
     private boolean running;
 
     public Breakout(int width, int height) {
@@ -36,9 +38,10 @@ public class Breakout extends Timer implements ActionListener {
         this.running = true;
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth);
         this.ball = new Ball(paddle);
-
+        this.bwl = new BallWallCollision(width, height);
+        
         addActionListener(this);
-        setInitialDelay(2000);
+        setInitialDelay(100);
     }
 
     public boolean running() {
@@ -56,6 +59,7 @@ public class Breakout extends Timer implements ActionListener {
         }
         ball.launchBall();
         ball.move();
+        bwl.checkCollisions(ball, null);
         this.updatable.update();
         setDelay(1000 / 20);
     }

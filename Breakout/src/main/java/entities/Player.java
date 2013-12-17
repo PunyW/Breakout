@@ -17,7 +17,7 @@ public class Player {
         return score;
     }
     
-    public void loseLives() {
+    public void loseLife() {
         lives--;
     }
     
