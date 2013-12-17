@@ -13,4 +13,4 @@ Käyttäjien toimintoja, ohjelmistolla on vain yksi käyttäjä ja se on pelaaja
 Valikossa valinnan teko
 * Valitse uusi peli, ohjeet, poistu
 Liikuta mailaa
-* Hiirellä, näppäimistöllä vai molemmilla? !!! MUISTA KORJATA !!!
+* Hiirellä, näppäimistöllä vai molemmilla?
