@@ -1,7 +1,5 @@
 package sprites;
 
-import entities.Player;
-
 public class Paddle extends Sprite {
     private final int minWidth, maxWidth;
 

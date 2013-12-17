@@ -23,22 +23,19 @@ public class BallWallCollision {
 
     private void checkCeiling(Ball ball) {
         if (ball.getY() <= 0) {
-            // Revert balls upward momementum
-            ball.setDy(-ball.getDy());
+            ball.reverseUpwardsMomentum();
         }
     }
 
     private void checkRightWall(Ball ball) {
         if (ball.getX() + ball.getWidth() * 2 >= width) {
-            // Revert balls sideways momentum
-            ball.setDx(-ball.getDx());
+            ball.reverseSidewaysMomentum();
         }
     }
 
     private void checkLeftWall(Ball ball) {
         if (ball.getX() <= 0) {
-            // Revert balls sideways momentum
-            ball.setDx(-ball.getDx());
+            ball.reverseSidewaysMomentum();
         }
     }
 

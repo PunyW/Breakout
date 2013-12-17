@@ -6,7 +6,7 @@ public class Ball extends Sprite {
     private boolean moving;
 
     public Ball(Paddle paddle) {
-        super(paddle.getCenter() - 7, paddle.getY() - 8, 15, 15);
+        super(paddle.getCenter() - 7, paddle.getY() - 10, 15, 15);
         this.paddle = paddle;
         this.moving = false;
         dx = 5;
@@ -30,6 +30,14 @@ public class Ball extends Sprite {
     private void setPos(int x, int y) {
         super.x = x;
         super.y = y;
+    }
+    
+    public void reverseSidewaysMomentum() {
+        dx = -dx;
+    }
+    
+    public void reverseUpwardsMomentum() {
+        dy = -dy;
     }
 
     // Reset the ball back onto the paddle

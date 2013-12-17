@@ -1,6 +1,8 @@
 package sprites;
 
-public abstract class Sprite {
+import java.awt.Rectangle;
+
+public abstract class Sprite implements Collideable{
     protected int x;
     protected int y;
     protected final int height;
@@ -31,6 +33,12 @@ public abstract class Sprite {
 
     public int getWidth() {
         return width;
+    }
+
+    @Override
+    public Rectangle getCollisionRect() {
+        Rectangle collisionRect = new Rectangle(this.x, this.y, this.width, this.height);
+        return collisionRect;
     }
 
 }
