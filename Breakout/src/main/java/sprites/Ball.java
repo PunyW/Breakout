@@ -1,16 +1,22 @@
 package sprites;
 
 public class Ball extends Sprite {
+
     private int dx, dy;
     private Paddle paddle;
     private boolean moving;
+    private int speed, maxSpeed;
+    private int counter;
 
     public Ball(Paddle paddle) {
         super(paddle.getCenter() - 7, paddle.getY() - 10, 15, 15);
         this.paddle = paddle;
         this.moving = false;
+        maxSpeed = 10;
+        speed = 5;
         dx = 5;
         dy = -5;
+        counter = 0;
     }
 
     public Ball(int x, int y, int height, int width) {
@@ -19,7 +25,38 @@ public class Ball extends Sprite {
 
     public void move() {
         if (moving) {
+            counter++;
+            if(counter == 5) {
+                increaseSpeed();
+                counter = 0;
+            }
             setPos(super.x + dx, super.y + dy);
+        }
+    }
+
+    public void increaseSpeed() {
+        if (dx < 0) {
+            dx--;
+            if (dx < -maxSpeed) {
+                dx = -maxSpeed;
+            }
+        } else {
+            dx++;
+            if (dx > maxSpeed) {
+                dx = maxSpeed;
+            }
+        }
+
+        if (dy < 0) {
+            dy--;
+            if (dy < -maxSpeed) {
+                dy = -maxSpeed;
+            }
+        } else {
+            dy++;
+            if (dy > maxSpeed) {
+                dy = maxSpeed;
+            }
         }
     }
 
@@ -31,11 +68,11 @@ public class Ball extends Sprite {
         super.x = x;
         super.y = y;
     }
-    
+
     public void reverseSidewaysMomentum() {
         dx = -dx;
     }
-    
+
     public void reverseUpwardsMomentum() {
         dy = -dy;
     }

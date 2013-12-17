@@ -60,7 +60,9 @@ public class Breakout extends Timer implements ActionListener {
         ball.launchBall();
         ball.move();
         if(cd.collides(ball, paddle)) {
-            ball.reverseUpwardsMomentum();
+            if(ball.getY() < paddle.getY()) {
+                ball.reverseUpwardsMomentum();
+            }
         }
         this.cd.ballWallCollision(ball, null);
         this.updatable.update();
