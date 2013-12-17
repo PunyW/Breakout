@@ -40,7 +40,7 @@ public class Gui implements Runnable {
     }
     
     private void createComponents(Container container) {
-        canvas = new Canvas(breakout.getPaddle());
+        canvas = new Canvas(breakout.getPaddle(), breakout.getBall());
         container.add(canvas);
         
         PaddleKeyListener pkl = new PaddleKeyListener(breakout.getPaddle());
