@@ -18,13 +18,14 @@ public class Canvas extends JPanel implements Updatable {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        // Paint paddle, just a rectangle for now
+        // Paint paddle
         g.setColor(Color.BLACK);
         g.fill3DRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight(), true);
         
         // Paint ball
-        g.setColor(Color.red);
-        g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+        g.setColor(Color.RED);
+        g.fill3DRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(), true);
+        
         g.dispose();
     }
 

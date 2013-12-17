@@ -43,7 +43,7 @@ public class BallWallCollision {
     }
 
     private void checkFloor(Ball ball, Player player) {
-        if (ball.getY() + ball.getHeight() * 2 >= height) {
+        if (ball.getY() + 15 + ball.getHeight() * 2 >= height) {
             ball.resetBall();
 //            player.loseLife();
         }

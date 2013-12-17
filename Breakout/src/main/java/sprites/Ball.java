@@ -6,7 +6,7 @@ public class Ball extends Sprite {
     private boolean moving;
 
     public Ball(Paddle paddle) {
-        super(paddle.getCenter() - 7, paddle.getY() - 16, 15, 15);
+        super(paddle.getCenter() - 7, paddle.getY() - 8, 15, 15);
         this.paddle = paddle;
         this.moving = false;
         dx = 5;
