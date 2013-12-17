@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package breakout;
 
+import entities.Player;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -13,15 +9,13 @@ import sprites.Paddle;
 import ui.Updatable;
 import util.CollisionDetection;
 
-/**
- *
- * @author Joel
- */
 public class Breakout extends Timer implements ActionListener {
+
     private Ball ball;
     private Paddle paddle;
     private Updatable updatable;
     private CollisionDetection cd;
+    private Player player;
     private boolean running;
 
     public Breakout(int width, int height) {
@@ -39,6 +33,7 @@ public class Breakout extends Timer implements ActionListener {
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth);
         this.ball = new Ball(paddle);
         this.cd = new CollisionDetection(width, height);
+        this.player = new Player(3);
 
         addActionListener(this);
         setInitialDelay(100);
@@ -59,12 +54,13 @@ public class Breakout extends Timer implements ActionListener {
         }
         ball.launchBall();
         ball.move();
-        if(cd.collides(ball, paddle)) {
-            if(ball.getY() < paddle.getY()) {
+        if (cd.collides(ball, paddle)) {
+            if (ball.getY() < paddle.getY()) {
                 ball.reverseUpwardsMomentum();
+                // SET DIRECTION HERE
             }
         }
-        this.cd.ballWallCollision(ball, null);
+        this.cd.ballWallCollision(ball, player);
         this.updatable.update();
         setDelay(1000 / 20);
     }

@@ -83,6 +83,10 @@ public class Ball extends Sprite {
         setPos(paddle.getCenter() - super.getWidth() / 2, paddle.getY() - (super.height + 1));
         dy = -5;
     }
+    
+    public void setDirection(int x) {
+        dx = x;
+    }
 
     public int getDx() {
         return dx;

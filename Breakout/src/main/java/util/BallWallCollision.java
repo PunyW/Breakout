@@ -4,7 +4,6 @@ import entities.Player;
 import sprites.Ball;
 
 public class BallWallCollision {
-
     // Game dimensions
     private final int width;
     private final int height;
@@ -42,7 +41,7 @@ public class BallWallCollision {
     private void checkFloor(Ball ball, Player player) {
         if (ball.getY() + 15 + ball.getHeight() * 2 >= height) {
             ball.resetBall();
-//            player.loseLife();
+            player.loseLife();
         }
     }
 }
