@@ -4,7 +4,6 @@ import entities.Player;
 import java.awt.Rectangle;
 import sprites.Ball;
 import sprites.Collideable;
-import sprites.Paddle;
 
 public class CollisionDetection {
 
@@ -18,18 +17,11 @@ public class CollisionDetection {
     }
 
     public boolean collides(Collideable col1, Collideable col2) {
-        // Return true if the given objects collide else false
+        // Return true if the given objects collide
         Rectangle rect1 = col1.getCollisionRect();
         Rectangle rect2 = col2.getCollisionRect();
 
         return rect1.intersects(rect2);
-    }
-
-    public boolean ballCollidesWithPaddle(Ball ball, Paddle paddle) {
-        Rectangle ballRect = ball.getCollisionRect();
-        Rectangle paddleRect = paddle.getCollisionRect();
-        
-        return false;
     }
 
     public void ballWallCollision(Ball ball, Player player) {
