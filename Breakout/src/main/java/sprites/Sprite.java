@@ -1,4 +1,4 @@
-package objects;
+package sprites;
 
 public abstract class Sprite {
     protected int x;
@@ -11,6 +11,10 @@ public abstract class Sprite {
         this.y = y;
         this.height = height;
         this.width = width;
+    }
+    
+    protected void setImage() {
+        
     }
 
     public int getX() {
@@ -28,6 +32,5 @@ public abstract class Sprite {
     public int getWidth() {
         return width;
     }
-    
-    public abstract void move();
+
 }

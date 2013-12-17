@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package objects;
+package sprites;
 
+import sprites.Paddle;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -43,9 +44,36 @@ public class PaddleTest {
         test(25, 40);
     }
     
+    @Test
+    public void getCenterGivesRightX() {
+        assertEquals(paddle.getCenter(), 30);
+    }
+    
+    @Test
+    public void paddleCanMoveRight() {
+        paddle.move(10);
+        testX(10);
+    }
+    
+    @Test
+    public void paddleWontGoOverLeftSideOfTheWindow() {
+        paddle.move(-10);
+        testX(0);
+    }
+    
+    @Test
+    public void paddleCanMoveLeft() {
+        paddle.move(100);
+        paddle.move(-50);
+        testX(50);
+    }
+    
     private void test(int h, int w) {
-        // X and Y checks here later?
         assertEquals(paddle.getWidth(), w);
         assertEquals(paddle.getHeight(), h);
+    }
+    
+    private void testX(int x) {
+        assertEquals(paddle.getX(), x);
     }
 }

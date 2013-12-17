@@ -1,5 +1,6 @@
+package sprites;
 
-package objects;
+import entities.Player;
 
 public class Paddle extends Sprite {
     private final int minWidth, maxWidth;
@@ -10,25 +11,38 @@ public class Paddle extends Sprite {
         this.maxWidth = 150;
         checkSize();
     }
-    
 
-    
-    @Override
-    public void move() {
+    public int getCenter() {
+        return x + (width / 2);
     }
-    
+
     public void changeSize(int amount) {
         width += amount;
         checkSize();
     }
-    
+
     private void checkSize() {
-        if(width < minWidth) {
+        if (width < minWidth) {
             width = minWidth;
         }
-        if(width > maxWidth) {
+        if (width > maxWidth) {
             width = maxWidth;
         }
     }
+    
+    private void checkPosition() {
+        if(x < 0) {
+            x = 0;
+        }
+    }
 
+    public void move(int x) {
+        this.x += x;
+        checkPosition();
+    }
+    
+    public void setPosition(int pos) {
+        this.x = pos;
+        checkPosition();
+    }
 }
