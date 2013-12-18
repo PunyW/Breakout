@@ -9,7 +9,7 @@ import sprites.Ball;
 import sprites.Brick;
 import sprites.Paddle;
 import ui.Updatable;
-import collisiondetection.CollisionDetection;
+import collisiondetection.CollisionDetectionManager;
 
 public class Breakout extends Timer implements ActionListener {
 
@@ -17,7 +17,7 @@ public class Breakout extends Timer implements ActionListener {
     private Ball ball;
     private Paddle paddle;
     private Updatable updatable;
-    private CollisionDetection cd;
+    private CollisionDetectionManager cd;
     private Player player;
     private boolean running;
 
@@ -36,7 +36,7 @@ public class Breakout extends Timer implements ActionListener {
         this.running = true;
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth, width);
         this.ball = new Ball(paddle);
-        this.cd = new CollisionDetection(width, height);
+        this.cd = new CollisionDetectionManager(width, height, paddle);
         this.player = new Player(3);
         BrickCreator bc = new BrickCreator(width, height);
         bricks = bc.createBrickLayout();
@@ -61,19 +61,9 @@ public class Breakout extends Timer implements ActionListener {
         ball.launchBall();
         ball.move();
 
-        // Ball & Paddle Collision
-        if (cd.collides(ball, paddle)) {
-            if (ball.getY() < paddle.getY()) {
-                ball.reverseUpwardsMomentum();
-                // SET DIRECTION HERE
-            } else {
-                ball.reverseSidewaysMomentum();
-            }
-        }
-
-        // Ball and brick collision
-        // Ball & Wall collision
-        this.cd.ballWallCollision(ball, player);
+        // Check for collisions
+        cd.collisions(bricks, ball, player);
+        
         this.updatable.update();
         setDelay(1000 / 20);
     }

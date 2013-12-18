@@ -32,11 +32,17 @@ public class Canvas extends JPanel implements Updatable {
         g.fill3DRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(), true);
 
         // Paint bricks
-        g.setColor(Color.BLUE);
         for (int i = 0; i < bricks.length; i++) {
             for (int j = 0; j < bricks[0].length; j++) {
                 Brick brick = bricks[i][j];
-                g.fill3DRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), true);
+                if (brick.alive()) {
+                    if(brick.getHitPoints() > 1) {
+                        g.setColor(Color.MAGENTA);
+                    } else {
+                        g.setColor(Color.BLUE);
+                    }
+                    g.fill3DRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), true);
+                }
             }
         }
         g.dispose();

@@ -26,5 +26,4 @@ public class Brick extends Sprite {
             alive = false;
         }
     }
-
 }
