@@ -27,7 +27,7 @@ public class Ball extends Sprite {
         if (moving) {
             counter++;
             if(counter == 5) {
-                increaseSpeed();
+//                increaseSpeed();
                 counter = 0;
             }
             setPos(super.x + dx, super.y + dy);

@@ -22,7 +22,7 @@ public class Canvas extends JPanel implements Updatable {
         // Paint paddle
         g.setColor(Color.BLACK);
         g.fill3DRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight(), true);
-
+        
         // Paint ball
         g.setColor(Color.RED);
         g.fill3DRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(), true);

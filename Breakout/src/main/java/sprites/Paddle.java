@@ -1,13 +1,16 @@
 package sprites;
 
 public class Paddle extends Sprite {
-    private final int minWidth, maxWidth;
 
-    public Paddle(int x, int y, int height, int width) {
+    private final int minWidth, maxWidth, frameWidth;
+
+    public Paddle(int x, int y, int height, int width, int frameWidth) {
         super(x, y, height, width);
         this.minWidth = 30;
         this.maxWidth = 150;
+        this.frameWidth = frameWidth;
         checkSize();
+        System.out.println(this.width);
     }
 
     public int getCenter() {
@@ -20,17 +23,20 @@ public class Paddle extends Sprite {
     }
 
     private void checkSize() {
-        if (width < minWidth) {
+        if (width <= minWidth) {
             width = minWidth;
         }
-        if (width > maxWidth) {
+        if (width >= maxWidth) {
             width = maxWidth;
         }
     }
-    
+
     private void checkPosition() {
-        if(x < 0) {
+        if (x < 0) {
             x = 0;
+        }
+        if (x > frameWidth - width - 8) {
+            x = frameWidth - width - 8;
         }
     }
 
@@ -38,7 +44,7 @@ public class Paddle extends Sprite {
         this.x += x;
         checkPosition();
     }
-    
+
     public void setPosition(int pos) {
         this.x = pos;
         checkPosition();

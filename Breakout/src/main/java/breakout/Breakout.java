@@ -23,6 +23,7 @@ public class Breakout extends Timer implements ActionListener {
         init(width, height, 60);
     }
 
+    // Constructor for custom paddle size
     public Breakout(int width, int height, int paddleWidth) {
         super(1000, null);
         init(width, height, paddleWidth);
@@ -30,7 +31,7 @@ public class Breakout extends Timer implements ActionListener {
 
     private void init(int width, int height, int paddleWidth) {
         this.running = true;
-        this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth);
+        this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth, width);
         this.ball = new Ball(paddle);
         this.cd = new CollisionDetection(width, height);
         this.player = new Player(3);
@@ -58,6 +59,8 @@ public class Breakout extends Timer implements ActionListener {
             if (ball.getY() < paddle.getY()) {
                 ball.reverseUpwardsMomentum();
                 // SET DIRECTION HERE
+            } else {
+                ball.reverseSidewaysMomentum();
             }
         }
         this.cd.ballWallCollision(ball, player);

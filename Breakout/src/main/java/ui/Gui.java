@@ -34,7 +34,7 @@ public class Gui implements Runnable {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         createComponents(frame.getContentPane());
-        
+        frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
     }
