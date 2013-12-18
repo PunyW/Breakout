@@ -16,7 +16,7 @@ public class BrickTest {
 
     @Before
     public void setUp() {
-        brick = new Brick(2);
+        brick = new Brick(2, 0, 0);
     }
 
     @Test
