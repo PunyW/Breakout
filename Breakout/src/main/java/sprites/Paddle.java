@@ -10,7 +10,6 @@ public class Paddle extends Sprite {
         this.maxWidth = 150;
         this.frameWidth = frameWidth;
         checkSize();
-        System.out.println(this.width);
     }
 
     public int getCenter() {

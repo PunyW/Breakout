@@ -1,5 +1,6 @@
 package sprites;
 
+import java.awt.Rectangle;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,12 +18,22 @@ public class BallTest {
         Ball ball = new Ball(10, 20, 30, 40);
         checkEverything(10, 20, 30, 40, ball);
     }
+    
+    @Test
+    public void collisionRectangleIsRightSize() {
+        Ball ball = new Ball(10, 10, 10, 10);
+        Rectangle rect = ball.getCollisionRect();
+        assertEquals(10, rect.x);
+        assertEquals(10, rect.y);
+        assertEquals(10, rect.width);
+        assertEquals(10, rect.height);
+    }
 
     private void checkEverything(int x, int y, int h, int w, Ball ball) {
-        assertEquals(ball.getX(), x);
-        assertEquals(ball.getY(), y);
-        assertEquals(ball.getHeight(), h);
-        assertEquals(ball.getWidth(), w);
+        assertEquals(x, ball.getX());
+        assertEquals(y, ball.getY());
+        assertEquals(h, ball.getHeight());
+        assertEquals(w, ball.getWidth());
     }
 
 }

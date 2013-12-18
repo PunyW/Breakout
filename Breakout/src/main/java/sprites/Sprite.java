@@ -14,10 +14,6 @@ public abstract class Sprite implements Collideable{
         this.height = height;
         this.width = width;
     }
-    
-    protected void setImage() {
-        
-    }
 
     public int getX() {
         return x;

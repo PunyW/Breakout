@@ -2,7 +2,7 @@ package sprites;
 
 public class Ball extends Sprite {
 
-    private int dx, dy;
+    private int dx, dy, defaultDX, defaultDY;
     private Paddle paddle;
     private boolean moving;
     private int speed, maxSpeed;
@@ -11,30 +11,67 @@ public class Ball extends Sprite {
     public Ball(Paddle paddle) {
         super(paddle.getCenter() - 7, paddle.getY() - 10, 15, 15);
         this.paddle = paddle;
-        this.moving = false;
-        maxSpeed = 10;
-        speed = 5;
-        dx = 5;
-        dy = -5;
-        counter = 0;
+        init();
     }
 
     public Ball(int x, int y, int height, int width) {
         super(x, y, height, width);
+        init();
+    }
+
+    private void init() {
+        this.moving = false;
+        maxSpeed = 10;
+        speed = 5;
+        dx = defaultDX = 5;
+        dy = defaultDY = -5;
+        counter = 0;
+    }
+
+    public int getDefaultDX() {
+        return defaultDX;
+    }
+
+    public int getDefaultDY() {
+        return defaultDY;
+    }
+    
+    public boolean moving() {
+        return moving;
+    }
+
+    public void setDirection(int x) {
+        dx = x;
+    }
+
+    public int getDx() {
+        return dx;
+    }
+
+    public void setDx(int dx) {
+        this.dx = dx;
+    }
+
+    public int getDy() {
+        return dy;
+    }
+
+    public void setDy(int dy) {
+        this.dy = dy;
     }
 
     public void move() {
         if (moving) {
             counter++;
-            if(counter == 5) {
-//                increaseSpeed();
+            if (counter == 5) {
+                increaseSpeed();
                 counter = 0;
             }
             setPos(super.x + dx, super.y + dy);
         }
     }
 
-    public void increaseSpeed() {
+    private void increaseSpeed() {
         if (dx < 0) {
             dx--;
             if (dx < -maxSpeed) {
@@ -81,27 +118,8 @@ public class Ball extends Sprite {
     public void resetBall() {
         moving = false;
         setPos(paddle.getCenter() - super.getWidth() / 2, paddle.getY() - (super.height + 1));
-        dy = -5;
-    }
-    
-    public void setDirection(int x) {
-        dx = x;
-    }
-
-    public int getDx() {
-        return dx;
-    }
-
-    public void setDx(int dx) {
-        this.dx = dx;
-    }
-
-    public int getDy() {
-        return dy;
-    }
-
-    public void setDy(int dy) {
-        this.dy = dy;
+        dy = defaultDY;
+        dx = defaultDX;
     }
 
 }
