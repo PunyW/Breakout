@@ -1,19 +1,24 @@
 package ui;
 
+import entities.BrickCreator;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import sprites.Ball;
+import sprites.Brick;
 import sprites.Paddle;
 
 public class Canvas extends JPanel implements Updatable {
 
+    private Brick[][] bricks;
     private final Paddle paddle;
     private final Ball ball;
 
     public Canvas(Paddle paddle, Ball ball) {
         this.paddle = paddle;
         this.ball = ball;
+        BrickCreator bc = new BrickCreator();
+        bricks = bc.createBrickLayout();
     }
 
     @Override
@@ -22,11 +27,19 @@ public class Canvas extends JPanel implements Updatable {
         // Paint paddle
         g.setColor(Color.BLACK);
         g.fill3DRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight(), true);
-        
+
         // Paint ball
         g.setColor(Color.RED);
         g.fill3DRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(), true);
 
+        // Paint bricks
+        g.setColor(Color.BLUE);
+        for (int i = 0; i < bricks.length; i++) {
+            for (int j = 0; j < bricks[0].length; j++) {
+                Brick brick = bricks[i][j];
+
+            }
+        }
         g.dispose();
     }
 

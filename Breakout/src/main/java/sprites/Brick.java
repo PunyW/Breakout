@@ -1,11 +1,12 @@
-package entities;
+package sprites;
 
-public class Brick {
+public class Brick extends Sprite {
 
     private int hitPoints;
     private boolean alive;
 
     public Brick(int hitPoints) {
+        super(0, 0, 0, 0);
         this.hitPoints = hitPoints;
         alive = true;
     }
@@ -24,4 +25,5 @@ public class Brick {
             alive = false;
         }
     }
+
 }

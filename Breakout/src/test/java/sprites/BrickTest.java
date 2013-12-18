@@ -1,4 +1,4 @@
-package entities;
+package sprites;
 
 import org.junit.After;
 import org.junit.AfterClass;
