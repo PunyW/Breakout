@@ -16,7 +16,6 @@ public class BrickCreator {
          * Here we will create the brick layout, bricks[i][j] tells the life of the brick
          * Later add feature to read the brick layout from a file
          */
-
         int[][] bricks = new int[10][15];
 
         int n;

@@ -72,18 +72,6 @@ public class Ball extends Sprite {
     }
 
     private void increaseSpeed() {
-        if (dx < 0) {
-            dx--;
-            if (dx < -maxSpeed) {
-                dx = -maxSpeed;
-            }
-        } else {
-            dx++;
-            if (dx > maxSpeed) {
-                dx = maxSpeed;
-            }
-        }
-
         if (dy < 0) {
             dy--;
             if (dy < -maxSpeed) {
