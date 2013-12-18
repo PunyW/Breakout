@@ -1,4 +1,4 @@
-package util;
+package collisiondetection;
 
 import entities.Player;
 import sprites.Ball;

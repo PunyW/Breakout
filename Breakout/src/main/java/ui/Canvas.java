@@ -14,11 +14,10 @@ public class Canvas extends JPanel implements Updatable {
     private final Paddle paddle;
     private final Ball ball;
 
-    public Canvas(Paddle paddle, Ball ball, int width, int height) {
+    public Canvas(Paddle paddle, Ball ball, Brick[][] bricks, int width, int height) {
         this.paddle = paddle;
         this.ball = ball;
-        BrickCreator bc = new BrickCreator(width, height);
-        bricks = bc.createBrickLayout();
+        this.bricks = bricks;
     }
 
     @Override

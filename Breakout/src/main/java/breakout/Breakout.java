@@ -1,16 +1,19 @@
 package breakout;
 
+import entities.BrickCreator;
 import entities.Player;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import sprites.Ball;
+import sprites.Brick;
 import sprites.Paddle;
 import ui.Updatable;
-import util.CollisionDetection;
+import collisiondetection.CollisionDetection;
 
 public class Breakout extends Timer implements ActionListener {
 
+    private Brick[][] bricks;
     private Ball ball;
     private Paddle paddle;
     private Updatable updatable;
@@ -35,6 +38,8 @@ public class Breakout extends Timer implements ActionListener {
         this.ball = new Ball(paddle);
         this.cd = new CollisionDetection(width, height);
         this.player = new Player(3);
+        BrickCreator bc = new BrickCreator(width, height);
+        bricks = bc.createBrickLayout();
 
         addActionListener(this);
         setInitialDelay(100);
@@ -55,6 +60,8 @@ public class Breakout extends Timer implements ActionListener {
         }
         ball.launchBall();
         ball.move();
+
+        // Ball & Paddle Collision
         if (cd.collides(ball, paddle)) {
             if (ball.getY() < paddle.getY()) {
                 ball.reverseUpwardsMomentum();
@@ -63,6 +70,9 @@ public class Breakout extends Timer implements ActionListener {
                 ball.reverseSidewaysMomentum();
             }
         }
+
+        // Ball and brick collision
+        // Ball & Wall collision
         this.cd.ballWallCollision(ball, player);
         this.updatable.update();
         setDelay(1000 / 20);
@@ -74,6 +84,10 @@ public class Breakout extends Timer implements ActionListener {
 
     public Ball getBall() {
         return ball;
+    }
+    
+    public Brick[][] getBricks() {
+        return bricks;
     }
 
 }
