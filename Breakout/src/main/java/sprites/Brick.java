@@ -5,8 +5,9 @@ public class Brick extends Sprite {
     private int hitPoints;
     private boolean alive;
 
-    public Brick(int hitPoints) {
-        super(0, 0, 0, 0);
+    public Brick(int hitPoints, int x, int y) {
+        // Hard coded size for now
+        super(x, y, 20, 40);
         this.hitPoints = hitPoints;
         alive = true;
     }

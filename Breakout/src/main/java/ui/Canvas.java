@@ -14,10 +14,10 @@ public class Canvas extends JPanel implements Updatable {
     private final Paddle paddle;
     private final Ball ball;
 
-    public Canvas(Paddle paddle, Ball ball) {
+    public Canvas(Paddle paddle, Ball ball, int width, int height) {
         this.paddle = paddle;
         this.ball = ball;
-        BrickCreator bc = new BrickCreator();
+        BrickCreator bc = new BrickCreator(width, height);
         bricks = bc.createBrickLayout();
     }
 
@@ -37,7 +37,7 @@ public class Canvas extends JPanel implements Updatable {
         for (int i = 0; i < bricks.length; i++) {
             for (int j = 0; j < bricks[0].length; j++) {
                 Brick brick = bricks[i][j];
-
+                g.fill3DRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), true);
             }
         }
         g.dispose();

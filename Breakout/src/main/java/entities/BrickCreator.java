@@ -13,7 +13,11 @@ import sprites.Brick;
  */
 public class BrickCreator {
 
-    public BrickCreator() {
+    private final int frameWidth, frameHeight;
+
+    public BrickCreator(int width, int height) {
+        frameWidth = width;
+        frameHeight = height;
     }
 
     public Brick[][] createBrickLayout() {
@@ -22,7 +26,7 @@ public class BrickCreator {
          * Later add feature to read the brick layout from a file
          */
 
-        int[][] bricks = new int[10][10];
+        int[][] bricks = new int[10][15];
 
         int n;
         for (int i = 0; i < bricks.length; i++) {
@@ -31,7 +35,7 @@ public class BrickCreator {
             } else {
                 n = 2;
             }
-            for (int j = 0; j < bricks.length; j++) {
+            for (int j = 0; j < bricks[0].length; j++) {
                 bricks[i][j] = n;
             }
 
@@ -43,11 +47,19 @@ public class BrickCreator {
     private Brick[][] createBricks(int[][] bricks) {
         // Convert the integers into bricks with health
         Brick[][] brickLayout = new Brick[bricks.length][bricks[0].length];
+        Brick template = new Brick(0, 0, 0);
+
+        int x = 50;
+        int y = 50;
 
         for (int i = 0; i < bricks.length; i++) {
             for (int j = 0; j < bricks[0].length; j++) {
-                brickLayout[i][j] = new Brick(bricks[i][j]);
+                Brick brick = new Brick(bricks[i][j], x, y);
+                brickLayout[i][j] = brick;
+                x += template.getWidth() + 5;
             }
+            y += template.getHeight() + 5;
+            x = 50;
         }
 
         return brickLayout;

@@ -33,14 +33,14 @@ public class Gui implements Runnable {
         frame.setPreferredSize(new Dimension(800, 640));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        createComponents(frame.getContentPane());
+        createComponents(frame.getContentPane(), 800, 640);
         frame.setResizable(false);
         frame.pack();
         frame.setVisible(true);
     }
     
-    private void createComponents(Container container) {
-        canvas = new Canvas(breakout.getPaddle(), breakout.getBall());
+    private void createComponents(Container container, int w, int h) {
+        canvas = new Canvas(breakout.getPaddle(), breakout.getBall(), w, h);
         container.add(canvas);
         
         PaddleKeyListener pkl = new PaddleKeyListener(breakout.getPaddle());
