@@ -21,7 +21,6 @@ public class BallPaddleCollision {
                 ball.reverseVerticalMomentum();
                 int direction = paddle.getCenter() - ball.getX();
                 ball.setDirection(-direction);
-                // SET DIRECTION HERE
             } else {
                 ball.reverseHorizontalMomentum();
             }

@@ -21,7 +21,7 @@ public class CollisionDetectionManager {
         // Ball & Paddle collision
         bpc.collides(ball);
         // Ball & Bricks collision
-        bbc.checkCollisions(bricks, ball);
+        bbc.checkCollisions(bricks, ball, player);
         // Ball & Wall collisions
         return bwc.checkCollisions(ball, player);
     }
