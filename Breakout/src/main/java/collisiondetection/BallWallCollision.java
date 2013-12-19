@@ -5,6 +5,7 @@ import sprites.Ball;
 
 public class BallWallCollision {
     // Game dimensions
+
     private final int width;
     private final int height;
 
@@ -13,11 +14,11 @@ public class BallWallCollision {
         this.height = height;
     }
 
-    public void checkCollisions(Ball ball, Player player) {
+    public boolean checkCollisions(Ball ball, Player player) {
         checkCeiling(ball);
-        checkFloor(ball, player);
         checkRightWall(ball);
         checkLeftWall(ball);
+        return checkFloor(ball, player);
     }
 
     private void checkCeiling(Ball ball) {
@@ -38,10 +39,14 @@ public class BallWallCollision {
         }
     }
 
-    private void checkFloor(Ball ball, Player player) {
+    private boolean checkFloor(Ball ball, Player player) {
         if (ball.getY() + 15 + ball.getHeight() * 2 >= height) {
             ball.resetBall();
             player.loseLife();
+            if (player.getLives() < 1) {
+                return true;
+            }
         }
+        return false;
     }
 }

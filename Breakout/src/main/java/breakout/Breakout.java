@@ -62,8 +62,10 @@ public class Breakout extends Timer implements ActionListener {
 
         ball.move();
 
-        // Check for collisions
-        cd.collisions(bricks, ball, player);
+        // Check for collisions, returns true if player has 0 lives left
+        if(cd.collisions(bricks, ball, player)) {
+            
+        }
 
         this.updatable.update();
         setDelay(1000 / 20);

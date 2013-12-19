@@ -5,7 +5,7 @@ public class Ball extends Sprite {
     private int dx, dy, defaultDX, defaultDY;
     private Paddle paddle;
     private boolean moving;
-    private int speed, maxSpeed;
+    private int maxSpeed;
     private int counter;
 
     public Ball(Paddle paddle) {
@@ -22,7 +22,6 @@ public class Ball extends Sprite {
     private void init() {
         this.moving = false;
         maxSpeed = 10;
-        speed = 5;
         dx = defaultDX = 5;
         dy = defaultDY = -5;
         counter = 0;

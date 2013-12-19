@@ -17,13 +17,13 @@ public class CollisionDetectionManager {
         
     }
 
-    public void collisions(Brick[][] bricks, Ball ball, Player player) {
-        // Ball & Wall collisions
-        bwc.checkCollisions(ball, player);
+    public boolean collisions(Brick[][] bricks, Ball ball, Player player) {
         // Ball & Paddle collision
         bpc.collides(ball);
         // Ball & Bricks collision
         bbc.checkCollisions(bricks, ball);
+        // Ball & Wall collisions
+        return bwc.checkCollisions(ball, player);
     }
 
 }
