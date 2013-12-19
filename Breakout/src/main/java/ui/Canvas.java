@@ -35,7 +35,7 @@ public class Canvas extends JPanel implements Updatable {
             for (int j = 0; j < bricks[0].length; j++) {
                 Brick brick = bricks[i][j];
                 if (brick.alive()) {
-                    if(brick.getHitPoints() > 1) {
+                    if (brick.getHitPoints() > 1) {
                         g.setColor(Color.MAGENTA);
                     } else {
                         g.setColor(Color.BLUE);
@@ -44,6 +44,7 @@ public class Canvas extends JPanel implements Updatable {
                 }
             }
         }
+
         g.dispose();
     }
 

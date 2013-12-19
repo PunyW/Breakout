@@ -24,8 +24,8 @@ public class BallMoveTest {
         ball.resetBall();
         testPos(paddle.getCenter() - 7, paddle.getY() - 16);
         assertEquals(false, ball.moving());
-        assertEquals(ball.getDefaultDX(), ball.getDx());
-        assertEquals(ball.getDefaultDY(), ball.getDy());
+        assertEquals(ball.getDefaultDx(), ball.getDx());
+        assertEquals(ball.getDefaultDy(), ball.getDy());
     }
     
     @Test
@@ -64,7 +64,7 @@ public class BallMoveTest {
         for(int i = 0; i < 5; i++) {
             ball.move();
         }
-        assertEquals(ball.getDefaultDY() - 1, ball.getDy());
+        assertEquals(ball.getDefaultDy() - 1, ball.getDy());
     }
     
     private void testX(int x) {

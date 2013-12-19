@@ -31,20 +31,16 @@ public class Ball extends Sprite {
         this.paddle = paddle;
     }
 
-    public int getDefaultDX() {
+    public int getDefaultDx() {
         return defaultDX;
     }
 
-    public int getDefaultDY() {
+    public int getDefaultDy() {
         return defaultDY;
     }
 
     public boolean moving() {
         return moving;
-    }
-
-    public void setDirection(int x) {
-        dx = x;
     }
 
     public int getDx() {
