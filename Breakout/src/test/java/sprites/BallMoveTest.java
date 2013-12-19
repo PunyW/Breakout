@@ -1,21 +1,31 @@
 package sprites;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 
 public class BallMoveTest {
     private Ball ball;
+    private Paddle paddle;
+    
     public BallMoveTest() {
         ball = new Ball(10, 10, 15, 15);
+        paddle = new Paddle(150, 500, 20, 60, 800);
     }
 
     @Before
     public void setUp() {
+    }
+    
+    @Test
+    public void ballResetWorks() {
+        ball.setPaddle(paddle);
+        ball.resetBall();
+        testPos(paddle.getCenter() - 7, paddle.getY() - 16);
+        assertEquals(false, ball.moving());
+        assertEquals(ball.getDefaultDX(), ball.getDx());
+        assertEquals(ball.getDefaultDY(), ball.getDy());
     }
     
     @Test
@@ -54,7 +64,6 @@ public class BallMoveTest {
         for(int i = 0; i < 5; i++) {
             ball.move();
         }
-        assertEquals(ball.getDefaultDX() + 1, ball.getDx());
         assertEquals(ball.getDefaultDY() - 1, ball.getDy());
     }
     

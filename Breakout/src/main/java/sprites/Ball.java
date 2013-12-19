@@ -9,7 +9,7 @@ public class Ball extends Sprite {
     private int counter;
 
     public Ball(Paddle paddle) {
-        super(paddle.getCenter() - 7, paddle.getY() - 10, 15, 15);
+        super(paddle.getCenter() - 7, paddle.getY() - 16, 15, 15);
         this.paddle = paddle;
         init();
     }
@@ -28,6 +28,10 @@ public class Ball extends Sprite {
         counter = 0;
     }
 
+    public void setPaddle(Paddle paddle) {
+        this.paddle = paddle;
+    }
+
     public int getDefaultDX() {
         return defaultDX;
     }
@@ -35,7 +39,7 @@ public class Ball extends Sprite {
     public int getDefaultDY() {
         return defaultDY;
     }
-    
+
     public boolean moving() {
         return moving;
     }
@@ -94,20 +98,19 @@ public class Ball extends Sprite {
         super.y = y;
     }
 
-    public void reverseSidewaysMomentum() {
+    public void reverseHorizontalMomentum() {
         dx = -dx;
     }
 
-    public void reverseUpwardsMomentum() {
+    public void reverseVerticalMomentum() {
         dy = -dy;
     }
 
     // Reset the ball back onto the paddle
     public void resetBall() {
         moving = false;
-        setPos(paddle.getCenter() - super.getWidth() / 2, paddle.getY() - (super.height + 1));
+        setPos(paddle.getCenter() - getWidth() / 2, paddle.getY() - (height + 1));
         dy = defaultDY;
         dx = defaultDX;
     }
-
 }

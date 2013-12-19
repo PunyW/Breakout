@@ -18,12 +18,12 @@ public class BallPaddleCollision {
 
         if (rect1.intersects(rect2)) {
             if (ball.getY() < paddle.getY()) {
-                ball.reverseUpwardsMomentum();
+                ball.reverseVerticalMomentum();
                 int direction = paddle.getCenter() - ball.getX();
                 ball.setDirection(-direction);
                 // SET DIRECTION HERE
             } else {
-                ball.reverseSidewaysMomentum();
+                ball.reverseHorizontalMomentum();
             }
         }
     }

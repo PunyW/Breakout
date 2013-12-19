@@ -1,6 +1,5 @@
 package ui;
 
-import entities.BrickCreator;
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
@@ -29,7 +28,7 @@ public class Canvas extends JPanel implements Updatable {
 
         // Paint ball
         g.setColor(Color.RED);
-        g.fill3DRect(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight(), true);
+        g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
 
         // Paint bricks
         for (int i = 0; i < bricks.length; i++) {

@@ -18,6 +18,14 @@ public class BallTest {
         Ball ball = new Ball(10, 20, 30, 40);
         checkEverything(10, 20, 30, 40, ball);
     }
+
+    @Test
+    public void constructorWithPaddleWorking() {
+        Paddle paddle = new Paddle(50, 50, 20, 60, 280);
+        Ball ball = new Ball(paddle);
+
+        checkEverything(paddle.getCenter() - 7, 34, 15, 15, ball);
+    }
     
     @Test
     public void collisionRectangleIsRightSize() {
@@ -35,5 +43,4 @@ public class BallTest {
         assertEquals(h, ball.getHeight());
         assertEquals(w, ball.getWidth());
     }
-
 }

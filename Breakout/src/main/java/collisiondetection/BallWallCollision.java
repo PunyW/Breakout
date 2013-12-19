@@ -22,19 +22,19 @@ public class BallWallCollision {
 
     private void checkCeiling(Ball ball) {
         if (ball.getY() <= 0) {
-            ball.reverseUpwardsMomentum();
+            ball.reverseVerticalMomentum();
         }
     }
 
     private void checkRightWall(Ball ball) {
         if (ball.getX() + ball.getWidth() * 2 >= width) {
-            ball.reverseSidewaysMomentum();
+            ball.reverseHorizontalMomentum();
         }
     }
 
     private void checkLeftWall(Ball ball) {
         if (ball.getX() <= 0) {
-            ball.reverseSidewaysMomentum();
+            ball.reverseHorizontalMomentum();
         }
     }
 
