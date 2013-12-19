@@ -1,20 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package sprites;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-/**
- *
- * @author Joel
- */
 public class PaddleTest {
 
-    private Paddle paddle;
+    private final Paddle paddle;
 
     public PaddleTest() {
         paddle = new Paddle(0, 0, 25, 60, 200);
@@ -26,11 +17,17 @@ public class PaddleTest {
     }
 
     @Test
-    public void manualPositionSetWorks() {
-        paddle.setPosition(20);
-        testX(20);
+    public void constructorWorkingWithTooLargePaddle() {
+        Paddle paddle2 = new Paddle(0, 0, 25, 200, 500);
+        assertEquals(150, paddle2.getWidth());
     }
-    
+
+    @Test
+    public void constructorWorkingWithTooSmallPaddle() {
+        Paddle paddle2 = new Paddle(0, 0, 25, 25, 500);
+        assertEquals(30, paddle2.getWidth());
+    }
+
     @Test
     public void paddleGrowsCorrectly() {
         paddle.changeSize(25);
@@ -60,31 +57,6 @@ public class PaddleTest {
         assertEquals(paddle.getCenter(), 30);
     }
 
-    @Test
-    public void paddleCanMoveRight() {
-        paddle.move(10);
-        testX(10);
-    }
-
-    @Test
-    public void paddleWontGoOverLeftSideOfTheWindow() {
-        paddle.move(-10);
-        testX(0);
-    }
-
-    @Test
-    public void paddleCanMoveLeft() {
-        paddle.move(100);
-        paddle.move(-50);
-        testX(50);
-    }
-
-    @Test
-    public void paddleWontGoPastTheScreenOnTheRight() {
-        paddle.move(200);
-        testX(200 - paddle.width - 8);
-    }
-
     private void test(int h, int w) {
         testHeight(h);
         testWidth(w);
@@ -96,9 +68,5 @@ public class PaddleTest {
 
     private void testHeight(int h) {
         assertEquals(h, paddle.getHeight());
-    }
-
-    private void testX(int x) {
-        assertEquals(x, paddle.getX());
     }
 }

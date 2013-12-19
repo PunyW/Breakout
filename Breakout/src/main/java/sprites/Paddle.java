@@ -22,10 +22,9 @@ public class Paddle extends Sprite {
     }
 
     private void checkSize() {
-        if (width <= minWidth) {
+        if (width < minWidth) {
             width = minWidth;
-        }
-        if (width >= maxWidth) {
+        } else if (width > maxWidth) {
             width = maxWidth;
         }
     }
@@ -33,9 +32,8 @@ public class Paddle extends Sprite {
     private void checkPosition() {
         if (x < 0) {
             x = 0;
-        }
-        if (x > frameWidth - width - 8) {
-            x = frameWidth - width - 8;
+        } else if (x > frameWidth - (width + 8)) {
+            x = frameWidth - (width + 8);
         }
     }
 

@@ -43,7 +43,7 @@ public class BallWallCollision {
         if (ball.getY() + 15 + ball.getHeight() * 2 >= height) {
             ball.resetBall();
             player.loseLife();
-            if (player.getLives() < 1) {
+            if (player.getLives() == 0) {
                 return true;
             }
         }
