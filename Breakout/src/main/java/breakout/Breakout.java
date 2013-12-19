@@ -40,7 +40,7 @@ public class Breakout extends Timer implements ActionListener {
         this.cd = new CollisionDetectionManager(width, height, paddle);
         this.player = new Player(3);
         BrickCreator bc = new BrickCreator(width, height);
-        bricks = bc.createBrickLayout();
+        bricks = bc.createBricks(10, 15);
 
         addActionListener(this);
         setInitialDelay(10);
