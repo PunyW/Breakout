@@ -5,8 +5,6 @@ public class Ball extends Sprite {
     private int dx, dy, defaultDX, defaultDY;
     private Paddle paddle;
     private boolean moving;
-    private int maxSpeed;
-    private int counter;
 
     public Ball(Paddle paddle) {
         super(paddle.getCenter() - 7, paddle.getY() - 16, 15, 15);
@@ -21,10 +19,8 @@ public class Ball extends Sprite {
 
     private void init() {
         this.moving = false;
-        maxSpeed = 10;
         dx = defaultDX = 5;
         dy = defaultDY = -5;
-        counter = 0;
     }
 
     public void setPaddle(Paddle paddle) {
@@ -61,29 +57,23 @@ public class Ball extends Sprite {
 
     public void move() {
         if (moving) {
-            counter++;
-            if (counter == 5) {
-                increaseSpeed();
-                counter = 0;
-            }
-            setPos(super.x + dx, super.y + dy);
+            setPos(x + dx, y + dy);
         }
     }
 
-    private void increaseSpeed() {
-        if (dy < 0) {
-            dy--;
-            if (dy < -maxSpeed) {
-                dy = -maxSpeed;
-            }
-        } else {
-            dy++;
-            if (dy > maxSpeed) {
-                dy = maxSpeed;
-            }
-        }
-    }
-
+//    private void increaseSpeed() {
+//        if (dy < 0) {
+//            dy--;
+//            if (dy < -maxSpeed) {
+//                dy = -maxSpeed;
+//            }
+//        } else {
+//            dy++;
+//            if (dy > maxSpeed) {
+//                dy = maxSpeed;
+//            }
+//        }
+//    }
     public void launchBall() {
         moving = true;
     }
