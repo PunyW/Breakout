@@ -6,9 +6,9 @@ import sprites.Brick;
 import sprites.Paddle;
 
 public class CollisionDetectionManager {
-    private BallBricksCollision bbc;
-    private BallWallCollision bwc;
-    private BallPaddleCollision bpc;
+    private final BallBricksCollision bbc;
+    private final BallWallCollision bwc;
+    private final BallPaddleCollision bpc;
 
     public CollisionDetectionManager(int width, int height, Paddle paddle) {
         bwc = new BallWallCollision(width, height);

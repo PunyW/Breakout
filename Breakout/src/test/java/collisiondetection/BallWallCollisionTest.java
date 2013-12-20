@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package collisiondetection;
 
 import entities.Player;
@@ -10,16 +6,12 @@ import org.junit.Test;
 import sprites.Ball;
 import sprites.Paddle;
 
-/**
- *
- * @author jajojajo
- */
 public class BallWallCollisionTest {
 
-    private Ball ball;
-    private Player player;
-    private BallWallCollision cd;
-    private Paddle paddle;
+    private final Ball ball;
+    private final Player player;
+    private final BallWallCollision cd;
+    private final Paddle paddle;
 
     public BallWallCollisionTest() {
         paddle = new Paddle(60, 175, 20, 60, 200);
@@ -52,7 +44,7 @@ public class BallWallCollisionTest {
         moveBall();
         assertEquals(50, ball.getDy());
     }
-    
+
     @Test
     public void ballCollidesWithTheFloor() {
         ball.setDy(50);
@@ -60,7 +52,7 @@ public class BallWallCollisionTest {
         assertEquals(ball.getDefaultDy(), ball.getDy());
         assertEquals(ball.getDefaultDx(), ball.getDx());
     }
-    
+
     @Test
     public void collisionWithFloorReducesLifeFromPlayer() {
         ball.setDy(50);

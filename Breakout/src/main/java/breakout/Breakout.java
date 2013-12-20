@@ -19,6 +19,7 @@ public class Breakout extends Timer implements ActionListener {
     private Updatable updatable;
     private CollisionDetectionManager cd;
     private Player player;
+    private BrickCreator bc;
     private boolean running;
 
     public Breakout(int width, int height) {
@@ -39,7 +40,7 @@ public class Breakout extends Timer implements ActionListener {
         ball.launchBall();
         this.cd = new CollisionDetectionManager(width, height, paddle);
         this.player = new Player(3);
-        BrickCreator bc = new BrickCreator(width, height);
+        bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
 
         addActionListener(this);

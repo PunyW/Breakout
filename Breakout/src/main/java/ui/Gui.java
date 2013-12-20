@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui;
 
 import breakout.Breakout;
@@ -12,10 +8,6 @@ import javax.swing.JFrame;
 import util.PaddleKeyListener;
 import util.PaddleMouseMotionListener;
 
-/**
- *
- * @author Joel
- */
 public class Gui implements Runnable {
 
     private JFrame frame;
@@ -39,7 +31,7 @@ public class Gui implements Runnable {
     }
 
     private void createComponents(Container container, int w, int h) {
-        canvas = new Canvas(breakout.getPaddle(), breakout.getBall(), breakout.getBricks(), w, h);
+        canvas = new Canvas(breakout, w, h);
         container.add(canvas);
 
         PaddleKeyListener pkl = new PaddleKeyListener(breakout.getPaddle());

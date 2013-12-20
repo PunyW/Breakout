@@ -4,8 +4,8 @@ import entities.Player;
 import sprites.Ball;
 
 public class BallWallCollision {
-    // Game dimensions
 
+    // Game dimensions
     private final int width;
     private final int height;
 
