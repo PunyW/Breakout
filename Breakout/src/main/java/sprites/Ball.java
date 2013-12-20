@@ -1,5 +1,7 @@
 package sprites;
 
+import java.awt.Rectangle;
+
 public class Ball extends Sprite {
 
     private int dx, dy, defaultDX, defaultDY;
@@ -98,4 +100,5 @@ public class Ball extends Sprite {
         dy = defaultDY;
         dx = defaultDX;
     }
+
 }
