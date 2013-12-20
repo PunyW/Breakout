@@ -17,11 +17,12 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
+        player.increaseScore(10);
     }
 
     @Test
     public void constructorWorking() {
-        checkStats(3, 0);
+        checkStats(3, 10);
     }
 
     @Test
@@ -33,19 +34,19 @@ public class PlayerTest {
     @Test
     public void losingLivesWorks() {
         player.loseLife();
-        checkStats(2, 0);
+        checkStats(2, 10);
     }
 
     @Test
     public void LifeUpWorks() {
         player.increaseLives();
-        checkStats(4, 0);
+        checkStats(4, 10);
     }
 
     @Test
     public void scoreWorks() {
         player.increaseScore(100);
-        checkStats(3, 100);
+        checkStats(3, 110);
     }
 
     private void checkStats(int life, int score) {

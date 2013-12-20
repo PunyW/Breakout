@@ -59,12 +59,22 @@ public class BallWallCollisionTest {
         ball.move();
         ball.move();
         assertEquals(true, cd.checkCollisions(ball, player));
-        assertEquals(0, player.getLives());
+        checkPlayer(0, 0);
+    }
+    
+    @Test
+    public void collisionsDoesntIncreaseScore() {
+        
     }
 
     private void moveBall() {
         ball.move();
         ball.move();
         cd.checkCollisions(ball, player);
+    }
+    
+    private void checkPlayer(int lives, int score) {
+        assertEquals(lives, player.getLives());
+        assertEquals(score, player.getScore());
     }
 }

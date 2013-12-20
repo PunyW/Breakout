@@ -42,5 +42,8 @@ public class BallTest {
         assertEquals(y, ball.getY());
         assertEquals(h, ball.getHeight());
         assertEquals(w, ball.getWidth());
+        assertEquals(false, ball.moving());
+        assertEquals(5, ball.getDx());
+        assertEquals(-5, ball.getDy());
     }
 }

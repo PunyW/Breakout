@@ -16,6 +16,12 @@ public class PaddleMoveTest {
         paddle.setPosition(20);
         testX(20);
     }
+    
+    @Test
+    public void cantPlacePaddleOutsideOfFrame() {
+        paddle.setPosition(-100);
+        testX(0);
+    }
 
     @Test
     public void paddleCanMoveRight() {
