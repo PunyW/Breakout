@@ -9,10 +9,20 @@ import sprites.Ball;
 import sprites.Brick;
 import sprites.Paddle;
 
+/**
+ *
+ * @author Joel
+ */
 public class Canvas extends JPanel implements Updatable {
     private final Breakout breakout;
     private final int width, height;
 
+    /**
+     *
+     * @param breakout
+     * @param width
+     * @param height
+     */
     public Canvas(Breakout breakout, int width, int height) {
         this.breakout = breakout;
         this.width = width;
@@ -49,7 +59,7 @@ public class Canvas extends JPanel implements Updatable {
         }
         
         // Print lives and score
-        g.setFont(new Font("Dante", 1, 20));
+        g.setFont(new Font("Century", 1, 20));
         g.setColor(Color.BLACK);
         g.drawString("Lives: " + breakout.getPlayer().getLives(), 10, 30);
         g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
@@ -57,6 +67,9 @@ public class Canvas extends JPanel implements Updatable {
         g.dispose();
     }
 
+    /**
+     *
+     */
     @Override
     public void update() {
         repaint();

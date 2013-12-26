@@ -2,15 +2,31 @@ package entities;
 
 import sprites.Brick;
 
+/**
+ *
+ * @author Joel
+ */
 public class BrickCreator {
 
     private final int frameWidth, frameHeight;
 
+    /**
+     *
+     * @param width     frame width
+     * @param height    frame height
+     */
     public BrickCreator(int width, int height) {
         frameWidth = width;
         frameHeight = height;
     }
 
+    /**
+     * Generate array of Bricks
+     * 
+     * @param   h how many bricks on top of each other
+     * @param   w how many bricks in each row
+     * @return  New generated Brick array
+     */
     public Brick[][] createBricks(int h, int w) {
         Brick[][] brickLayout = new Brick[h][w];
         Brick template = new Brick(0, 0, 0);

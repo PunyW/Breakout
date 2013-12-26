@@ -8,12 +8,20 @@ import javax.swing.JFrame;
 import util.PaddleKeyListener;
 import util.PaddleMouseMotionListener;
 
+/**
+ *
+ * @author Joel
+ */
 public class Gui implements Runnable {
 
     private JFrame frame;
     private Canvas canvas;
     private final Breakout breakout;
 
+    /**
+     *
+     * @param breakout
+     */
     public Gui(Breakout breakout) {
         this.breakout = breakout;
     }
@@ -41,10 +49,18 @@ public class Gui implements Runnable {
         frame.addMouseMotionListener(pmml);
     }
 
+    /**
+     *
+     * @return
+     */
     public JFrame getFrame() {
         return frame;
     }
 
+    /**
+     *
+     * @return
+     */
     public Updatable getUpdatable() {
         return this.canvas;
     }

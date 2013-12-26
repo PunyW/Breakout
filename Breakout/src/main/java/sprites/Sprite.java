@@ -2,12 +2,25 @@ package sprites;
 
 import java.awt.Rectangle;
 
+/**
+ *
+ * @author Joel
+ */
 public abstract class Sprite implements Collideable{
+
     protected int x;
     protected int y;
     protected final int height;
     protected int width;
 
+    /**
+     * Constructor for Sprites
+     * 
+     * @param x Initial x coordinate for the object
+     * @param y Initial y coordinate for the object
+     * @param height
+     * @param width 
+     */
     public Sprite(int x, int y, int height, int width) {
         this.x = x;
         this.y = y;
@@ -31,6 +44,10 @@ public abstract class Sprite implements Collideable{
         return width;
     }
 
+    /**
+     * 
+     * @return Returns a new Rectangle with the Sprites attributes
+     */
     @Override
     public Rectangle getCollisionRect() {
         Rectangle collisionRect = new Rectangle(this.x, this.y, this.width, this.height);

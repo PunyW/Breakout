@@ -4,9 +4,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import sprites.Paddle;
 
+/**
+ *
+ * @author Joel
+ */
 public class PaddleMouseMotionListener implements MouseMotionListener {
     private final Paddle paddle;
 
+    /**
+     *
+     * @param paddle
+     */
     public PaddleMouseMotionListener(Paddle paddle) {
         this.paddle = paddle;
     }
