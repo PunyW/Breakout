@@ -4,7 +4,7 @@ package gamestate;
  *
  * @author Joel
  */
-public enum GameState {
+public enum GameStates {
 
     MENUSTATE, PLAYSTATE, HELP, PAUSE, ENDSCREEN
 }

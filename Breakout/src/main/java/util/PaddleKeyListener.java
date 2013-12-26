@@ -25,15 +25,15 @@ public class PaddleKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if(gsm.getState() == GameState.PAUSE) {
+        if(gsm.getState() == GameStates.PAUSE) {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                gsm.changeState(GameState.PLAYSTATE);
+                gsm.changeState(GameStates.PLAYSTATE);
             }
         }
         
-        if(gsm.getState() == GameState.PLAYSTATE) {
+        if(gsm.getState() == GameStates.PLAYSTATE) {
             if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                gsm.changeState(GameState.PAUSE);
+                gsm.changeState(GameStates.PAUSE);
             }
         }
 

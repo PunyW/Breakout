@@ -5,24 +5,24 @@ package gamestate;
  * @author Joel
  */
 public class GameStateManager {
-    private GameState currentState;
+    private GameStates currentState;
 
     /**
      *
      */
     public GameStateManager() {
-        currentState = GameState.MENUSTATE;
+        currentState = GameStates.MENUSTATE;
     }
     
     /**
      *
      * @param newState
      */
-    public void changeState(GameState newState) {
+    public void changeState(GameStates newState) {
         currentState = newState;
     }
     
-    public GameState getState() {
+    public GameStates getState() {
         return currentState;
     }
     

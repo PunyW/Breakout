@@ -37,7 +37,7 @@ public class Canvas extends JPanel implements Updatable {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        GameState gameState = gsm.getState();
+        GameStates gameState = gsm.getState();
         switch(gameState) {
             case MENUSTATE:
                 paintMenuState(g);
@@ -65,8 +65,8 @@ public class Canvas extends JPanel implements Updatable {
     private void paintPauseState(Graphics g) {
         g.setFont(new Font("Century", 1, 40));
         g.setColor(Color.BLACK);
-        g.drawString("Game is paused", 150, height / 2);
-        g.drawString("Hit Space to continue", 100, height / 2 + 45);
+        g.drawString("Game is paused", 240, height / 2 - 80);
+        g.drawString("Hit Space to continue", 190, height / 2 + 35);
         
         g.dispose();
     }
