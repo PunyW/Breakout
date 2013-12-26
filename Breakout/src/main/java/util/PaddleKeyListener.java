@@ -27,7 +27,7 @@ public class PaddleKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if(gsm.getState() == GameStates.PAUSE) {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                gsm.changeState(GameStates.PLAYSTATE);
+                gsm.changeState(GameStates.MENUSTATE);
             }
         }
         
