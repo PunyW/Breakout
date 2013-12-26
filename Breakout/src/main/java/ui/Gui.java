@@ -42,7 +42,7 @@ public class Gui implements Runnable {
         canvas = new Canvas(breakout, w, h);
         container.add(canvas);
 
-        PaddleKeyListener pkl = new PaddleKeyListener();
+        PaddleKeyListener pkl = new PaddleKeyListener(breakout.getGameStateManager());
         frame.addKeyListener(pkl);
 
         PaddleMouseMotionListener pmml = new PaddleMouseMotionListener(breakout.getPaddle());

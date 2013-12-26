@@ -10,6 +10,7 @@ import sprites.Brick;
 import sprites.Paddle;
 import ui.Updatable;
 import collisiondetection.CollisionDetectionManager;
+import gamestate.*;
 
 public class Breakout extends Timer implements ActionListener {
 
@@ -21,6 +22,7 @@ public class Breakout extends Timer implements ActionListener {
     private Player player;
     private BrickCreator bc;
     private boolean running;
+    private GameStateManager gsm;
 
     public Breakout(int width, int height) {
         super(1000, null);
@@ -42,7 +44,9 @@ public class Breakout extends Timer implements ActionListener {
         this.player = new Player(3);
         bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
-
+        gsm = new GameStateManager();
+        gsm.changeState(GameState.PLAYSTATE);
+        
         addActionListener(this);
         setInitialDelay(10);
     }
@@ -60,12 +64,14 @@ public class Breakout extends Timer implements ActionListener {
         if (!running) {
             return;
         }
+        
+        if (gsm.getState() == GameState.PLAYSTATE) {
+            ball.move();
 
-        ball.move();
-
-        // Check for collisions, returns true if player has 0 lives left
-        if(cd.collisions(bricks, ball, player)) {
-            
+            // Check for collisions, returns true if player has 0 lives left
+            if (cd.collisions(bricks, ball, player)) {
+                gsm.changeState(GameState.ENDSCREEN);
+            }
         }
 
         this.updatable.update();
@@ -83,8 +89,12 @@ public class Breakout extends Timer implements ActionListener {
     public Brick[][] getBricks() {
         return bricks;
     }
-    
+
     public Player getPlayer() {
         return player;
+    }
+    
+    public GameStateManager getGameStateManager() {
+        return gsm;
     }
 }

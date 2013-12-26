@@ -22,5 +22,9 @@ public class GameStateManager {
         currentState = newState;
     }
     
+    public GameState getState() {
+        return currentState;
+    }
+    
     
 }
