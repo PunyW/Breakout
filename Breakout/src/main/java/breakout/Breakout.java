@@ -83,4 +83,8 @@ public class Breakout extends Timer implements ActionListener {
     public Brick[][] getBricks() {
         return bricks;
     }
+    
+    public Player getPlayer() {
+        return player;
+    }
 }

@@ -2,6 +2,7 @@ package ui;
 
 import breakout.Breakout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 import sprites.Ball;
@@ -10,9 +11,12 @@ import sprites.Paddle;
 
 public class Canvas extends JPanel implements Updatable {
     private final Breakout breakout;
+    private final int width, height;
 
     public Canvas(Breakout breakout, int width, int height) {
         this.breakout = breakout;
+        this.width = width;
+        this.height = height;
     }
 
     @Override
@@ -43,7 +47,13 @@ public class Canvas extends JPanel implements Updatable {
                 }
             }
         }
-
+        
+        // Print lives and score
+        g.setFont(new Font("Dante", 1, 20));
+        g.setColor(Color.BLACK);
+        g.drawString("Lives: " + breakout.getPlayer().getLives(), 10, 30);
+        g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
+        
         g.dispose();
     }
 

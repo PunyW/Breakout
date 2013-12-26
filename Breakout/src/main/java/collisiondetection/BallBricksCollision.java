@@ -35,10 +35,10 @@ public class BallBricksCollision {
         if (ballRect.intersects(brickRect)) {
 
             if (brickRect.contains(ballRight)) {
-                ball.reverseVerticalMomentum();
+                ball.reverseHorizontalMomentum();
             }
             if (brickRect.contains(ballLeft)) {
-                ball.reverseVerticalMomentum();
+                ball.reverseHorizontalMomentum();
             }
             if (brickRect.contains(ballTop)) {
                 ball.reverseVerticalMomentum();
@@ -50,15 +50,6 @@ public class BallBricksCollision {
             player.increaseScore(10);
         }
 
-//        if (ballRect.intersects(brickRect)) {
-//            if (ballRect.y == brickRect.y + brickRect.height) {
-//                ball.reverseVerticalMomentum();
-//            } else if (ballRect.getY() + ballRect.height == brickRect.getY()) {
-//                ball.reverseVerticalMomentum();
-//            }
-//            brick.hit();
-//            player.increaseScore(10);
-//        }
     }
 
 }
