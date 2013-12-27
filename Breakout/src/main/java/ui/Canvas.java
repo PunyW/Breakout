@@ -66,6 +66,7 @@ public class Canvas extends JPanel implements Updatable {
     }
 
     private void paintPauseState(Graphics g) {
+        playCanvas.paintPlayState(g);
         g.setFont(new Font("Century", 1, 40));
         g.setColor(Color.BLACK);
         g.drawString("Game is paused", 240, height / 2 - 80);

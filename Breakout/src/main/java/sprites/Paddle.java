@@ -7,6 +7,7 @@ package sprites;
 public class Paddle extends Sprite {
 
     private final int minWidth, maxWidth, frameWidth;
+    private boolean docked;
 
     /**
      * Generate new Paddle with the given attributes.
@@ -22,6 +23,7 @@ public class Paddle extends Sprite {
         this.minWidth = 30;
         this.maxWidth = 150;
         this.frameWidth = frameWidth;
+        docked = false;
         checkSize();
     }
 
@@ -76,6 +78,22 @@ public class Paddle extends Sprite {
     public void move(int x) {
         this.x += x;
         checkPosition();
+    }
+    
+    /**
+     * "Docks" the paddle to the mouse, when docked is true paddle follows mouse
+     * movements
+     */
+    public void dockPaddle(){
+        docked = true;
+    }
+    
+    public void undockPaddle() {
+        docked = false;
+    }
+    
+    public boolean docked(){
+        return docked;
     }
 
     public void setPosition(int pos) {

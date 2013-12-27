@@ -39,7 +39,6 @@ public class Breakout extends Timer implements ActionListener {
         this.running = true;
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth, width);
         this.ball = new Ball(paddle);
-        ball.launchBall();
         this.cd = new CollisionDetectionManager(width, height, paddle);
         this.player = new Player(3);
         bc = new BrickCreator(width, height);

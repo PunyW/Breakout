@@ -9,6 +9,7 @@ import sprites.Paddle;
  * @author Joel
  */
 public class GameMouseMotionListener implements MouseMotionListener {
+
     private final Paddle paddle;
 
     /**
@@ -18,15 +19,18 @@ public class GameMouseMotionListener implements MouseMotionListener {
     public GameMouseMotionListener(Paddle paddle) {
         this.paddle = paddle;
     }
-    
+
     @Override
     public void mouseDragged(MouseEvent e) {
-        // Center the paddle to the middle of the mouse
-        paddle.setPosition(e.getX() - paddle.getWidth() / 2);
+
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
+        // Center the paddle to the middle of the mouse
+        if (paddle.docked()) {
+            paddle.setPosition(e.getX() - paddle.getWidth() / 2);
+        }
     }
 
 }

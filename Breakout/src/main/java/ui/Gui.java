@@ -1,4 +1,3 @@
-
 package ui;
 
 import breakout.Breakout;
@@ -42,7 +41,8 @@ public class Gui implements Runnable {
         canvas = new Canvas(breakout, w, h);
         container.add(canvas);
 
-        GameKeyListener pkl = new GameKeyListener(breakout.getGameStateManager());
+        GameKeyListener pkl = new GameKeyListener(breakout.getGameStateManager(),
+                breakout.getBall(), breakout.getPaddle());
         frame.addKeyListener(pkl);
 
         GameMouseMotionListener pmml = new GameMouseMotionListener(breakout.getPaddle());

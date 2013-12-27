@@ -3,20 +3,26 @@ package util;
 import gamestate.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import sprites.Ball;
+import sprites.Paddle;
 
 /**
  *
  * @author Joel
  */
 public class GameKeyListener implements KeyListener {
-    private GameStateManager gsm;
+    private final GameStateManager gsm;
+    private Ball ball;
+    private final Paddle paddle;
     
     /**
      * 
      * @param gsm GameStateManager
      */
-    public GameKeyListener(GameStateManager gsm) {
+    public GameKeyListener(GameStateManager gsm, Ball ball, Paddle paddle) {
         this.gsm = gsm;
+        this.ball = ball;
+        this.paddle = paddle;
     }
 
     @Override
@@ -34,6 +40,15 @@ public class GameKeyListener implements KeyListener {
         if(gsm.getState() == GameStates.PLAYSTATE) {
             if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 gsm.changeState(GameStates.PAUSE);
+            }
+            
+            if(e.getKeyChar() == KeyEvent.VK_SPACE) {
+                ball.launchBall();
+                if(paddle.docked()) {
+                    paddle.undockPaddle();
+                } else {
+                    paddle.dockPaddle();
+                }
             }
         }
 

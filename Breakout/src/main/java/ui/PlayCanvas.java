@@ -59,7 +59,7 @@ public class PlayCanvas {
         g.drawString("Lives: " + breakout.getPlayer().getLives(), 10, 30);
         g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
 
-        g.dispose();
+//        g.dispose();
     }
 
 }
