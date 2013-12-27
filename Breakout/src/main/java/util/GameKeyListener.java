@@ -8,14 +8,14 @@ import java.awt.event.KeyListener;
  *
  * @author Joel
  */
-public class PaddleKeyListener implements KeyListener {
+public class GameKeyListener implements KeyListener {
     private GameStateManager gsm;
     
     /**
      * 
      * @param gsm GameStateManager
      */
-    public PaddleKeyListener(GameStateManager gsm) {
+    public GameKeyListener(GameStateManager gsm) {
         this.gsm = gsm;
     }
 
@@ -27,7 +27,7 @@ public class PaddleKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if(gsm.getState() == GameStates.PAUSE) {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                gsm.changeState(GameStates.MENUSTATE);
+                gsm.changeState(GameStates.PLAYSTATE);
             }
         }
         

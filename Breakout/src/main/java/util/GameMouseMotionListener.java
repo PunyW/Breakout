@@ -8,14 +8,14 @@ import sprites.Paddle;
  *
  * @author Joel
  */
-public class PaddleMouseMotionListener implements MouseMotionListener {
+public class GameMouseMotionListener implements MouseMotionListener {
     private final Paddle paddle;
 
     /**
      *
      * @param paddle
      */
-    public PaddleMouseMotionListener(Paddle paddle) {
+    public GameMouseMotionListener(Paddle paddle) {
         this.paddle = paddle;
     }
     

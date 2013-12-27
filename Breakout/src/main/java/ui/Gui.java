@@ -5,8 +5,8 @@ import breakout.Breakout;
 import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.JFrame;
-import util.PaddleKeyListener;
-import util.PaddleMouseMotionListener;
+import util.GameKeyListener;
+import util.GameMouseMotionListener;
 
 /**
  *
@@ -42,10 +42,10 @@ public class Gui implements Runnable {
         canvas = new Canvas(breakout, w, h);
         container.add(canvas);
 
-        PaddleKeyListener pkl = new PaddleKeyListener(breakout.getGameStateManager());
+        GameKeyListener pkl = new GameKeyListener(breakout.getGameStateManager());
         frame.addKeyListener(pkl);
 
-        PaddleMouseMotionListener pmml = new PaddleMouseMotionListener(breakout.getPaddle());
+        GameMouseMotionListener pmml = new GameMouseMotionListener(breakout.getPaddle());
         frame.addMouseMotionListener(pmml);
     }
 
