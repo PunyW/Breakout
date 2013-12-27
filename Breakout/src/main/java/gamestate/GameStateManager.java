@@ -1,10 +1,13 @@
 package gamestate;
 
+import breakout.Breakout;
+
 /**
  *
  * @author Joel
  */
 public class GameStateManager {
+
     private GameStates currentState;
 
     /**
@@ -13,7 +16,7 @@ public class GameStateManager {
     public GameStateManager() {
         currentState = GameStates.MENUSTATE;
     }
-    
+
     /**
      *
      * @param newState
@@ -21,10 +24,8 @@ public class GameStateManager {
     public void changeState(GameStates newState) {
         currentState = newState;
     }
-    
+
     public GameStates getState() {
         return currentState;
     }
-    
-    
 }

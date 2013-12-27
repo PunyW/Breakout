@@ -13,7 +13,7 @@ public class MenuCanvas {
 
     }
 
-    public void paintMenu(Graphics g) {
+    public void paint(Graphics g) {
         g.setColor(Color.red);
         g.fill3DRect(50, 50, 150, 150, true);
 

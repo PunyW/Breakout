@@ -40,6 +40,7 @@ public class GameKeyListener implements KeyListener {
         if(gsm.getState() == GameStates.PLAYSTATE) {
             if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 gsm.changeState(GameStates.PAUSE);
+                paddle.undockPaddle();
             }
             
             if(e.getKeyChar() == KeyEvent.VK_SPACE) {

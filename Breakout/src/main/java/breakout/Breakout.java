@@ -45,7 +45,7 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager();
         gsm.changeState(GameStates.PLAYSTATE);
-        
+
         addActionListener(this);
         setInitialDelay(10);
     }
@@ -63,7 +63,7 @@ public class Breakout extends Timer implements ActionListener {
         if (!running) {
             return;
         }
-        
+
         if (gsm.getState() == GameStates.PLAYSTATE) {
             ball.move();
 
@@ -92,7 +92,7 @@ public class Breakout extends Timer implements ActionListener {
     public Player getPlayer() {
         return player;
     }
-    
+
     public GameStateManager getGameStateManager() {
         return gsm;
     }

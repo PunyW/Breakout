@@ -2,13 +2,12 @@ package ui;
 
 import breakout.Breakout;
 import gamestate.*;
+import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import javax.swing.JPanel;
-import sprites.Ball;
-import sprites.Brick;
-import sprites.Paddle;
 
 /**
  *
@@ -20,6 +19,7 @@ public class Canvas extends JPanel implements Updatable {
     private final GameStateManager gsm;
     private final MenuCanvas menuCanvas;
     private final PlayCanvas playCanvas;
+    private final PauseCanvas pauseCanvas;
 
     /**
      *
@@ -33,6 +33,7 @@ public class Canvas extends JPanel implements Updatable {
         this.gsm = breakout.getGameStateManager();
         menuCanvas = new MenuCanvas();
         playCanvas = new PlayCanvas(breakout, width, height);
+        pauseCanvas = new PauseCanvas();
     }
 
     @Override
@@ -45,10 +46,13 @@ public class Canvas extends JPanel implements Updatable {
                 paintMenuState(g);
                 break;
             case PLAYSTATE:
-                playCanvas.paintPlayState(g);
+                playCanvas.paint(g);
+                g.dispose();
                 break;
             case PAUSE:
-                paintPauseState(g);
+                playCanvas.paint(g);
+                pauseCanvas.paint(g, height);
+                g.dispose();
                 break;
             case ENDSCREEN:
                 paintEndScreen(g);
@@ -61,17 +65,7 @@ public class Canvas extends JPanel implements Updatable {
     }
 
     private void paintMenuState(Graphics g) {
-        menuCanvas.paintMenu(g);
-        g.dispose();
-    }
-
-    private void paintPauseState(Graphics g) {
-        playCanvas.paintPlayState(g);
-        g.setFont(new Font("Century", 1, 40));
-        g.setColor(Color.BLACK);
-        g.drawString("Game is paused", 240, height / 2 - 80);
-        g.drawString("Hit Space to continue", 190, height / 2 + 35);
-
+        menuCanvas.paint(g);
         g.dispose();
     }
 

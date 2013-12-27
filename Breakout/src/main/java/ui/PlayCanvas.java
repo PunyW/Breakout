@@ -26,7 +26,7 @@ public class PlayCanvas {
         this.gsm = breakout.getGameStateManager();
     }
 
-    public void paintPlayState(Graphics g) {
+    public void paint(Graphics g) {
         // Paint paddle
         Paddle paddle = breakout.getPaddle();
         g.setColor(Color.BLACK);
