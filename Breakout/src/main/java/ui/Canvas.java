@@ -2,11 +2,7 @@ package ui;
 
 import breakout.Breakout;
 import gamestate.*;
-import java.awt.AlphaComposite;
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 /**
@@ -20,6 +16,7 @@ public class Canvas extends JPanel implements Updatable {
     private final MenuCanvas menuCanvas;
     private final PlayCanvas playCanvas;
     private final PauseCanvas pauseCanvas;
+    private final Breakout breakout;
 
     /**
      *
@@ -31,6 +28,7 @@ public class Canvas extends JPanel implements Updatable {
         this.width = width;
         this.height = height;
         this.gsm = breakout.getGameStateManager();
+        this.breakout = breakout;
         menuCanvas = new MenuCanvas();
         playCanvas = new PlayCanvas(breakout, width, height);
         pauseCanvas = new PauseCanvas();
@@ -47,12 +45,10 @@ public class Canvas extends JPanel implements Updatable {
                 break;
             case PLAYSTATE:
                 playCanvas.paint(g);
-                g.dispose();
                 break;
             case PAUSE:
                 playCanvas.paint(g);
                 pauseCanvas.paint(g, height);
-                g.dispose();
                 break;
             case ENDSCREEN:
                 paintEndScreen(g);
@@ -61,20 +57,17 @@ public class Canvas extends JPanel implements Updatable {
                 paintHelp(g);
                 break;
         }
-
+        g.dispose();
     }
 
     private void paintMenuState(Graphics g) {
         menuCanvas.paint(g);
-        g.dispose();
     }
 
     private void paintHelp(Graphics g) {
-        g.dispose();
     }
 
     private void paintEndScreen(Graphics g) {
-        g.dispose();
     }
 
     /**

@@ -53,13 +53,15 @@ public class PlayCanvas {
             }
         }
 
-        // Print lives and score
+        // Print lives, score and launch help
         g.setFont(new Font("Century", 1, 20));
         g.setColor(Color.BLACK);
         g.drawString("Lives: " + breakout.getPlayer().getLives(), 10, 30);
         g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
+        if (!ball.moving()) {
+            g.drawString("Launch ball with spacebar", 250, height - 40);
+        }
 
-//        g.dispose();
     }
 
 }
