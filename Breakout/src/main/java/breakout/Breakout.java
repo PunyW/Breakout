@@ -44,7 +44,7 @@ public class Breakout extends Timer implements ActionListener {
         bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager();
-        gsm.changeState(GameStates.PLAYSTATE);
+        gsm.setState(GameStates.PLAYSTATE);
 
         addActionListener(this);
         setInitialDelay(10);
@@ -69,7 +69,7 @@ public class Breakout extends Timer implements ActionListener {
 
             // Check for collisions, returns true if player has 0 lives left
             if (cd.collisions(bricks, ball, player)) {
-                gsm.changeState(GameStates.ENDSCREEN);
+                gsm.setState(GameStates.ENDSCREEN);
             }
         }
 

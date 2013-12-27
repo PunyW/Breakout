@@ -33,13 +33,13 @@ public class GameKeyListener implements KeyListener {
     public void keyPressed(KeyEvent e) {
         if(gsm.getState() == GameStates.PAUSE) {
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-                gsm.changeState(GameStates.PLAYSTATE);
+                gsm.setState(GameStates.PLAYSTATE);
             }
         }
         
         if(gsm.getState() == GameStates.PLAYSTATE) {
             if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                gsm.changeState(GameStates.PAUSE);
+                gsm.setState(GameStates.PAUSE);
                 paddle.undockPaddle();
             }
             
