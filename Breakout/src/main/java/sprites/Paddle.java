@@ -47,7 +47,7 @@ public class Paddle extends Sprite {
     }
 
     /**
-     * Checks that the paddle isn't too large or small, if it is change the size
+     * Check that paddle size is between min and max value, adjust accordingly.
      */
     private void checkSize() {
         if (width < minWidth) {
@@ -63,8 +63,8 @@ public class Paddle extends Sprite {
     private void checkPosition() {
         if (x < 0) {
             x = 0;
-        } else if (x > frameWidth - (width + 8)) {
-            x = frameWidth - (width + 8);
+        } else if (x > frameWidth - width) {
+            x = frameWidth - width;
         }
     }
 
@@ -79,20 +79,26 @@ public class Paddle extends Sprite {
         this.x += x;
         checkPosition();
     }
-    
+
     /**
-     * "Docks" the paddle to the mouse, when docked is true paddle follows mouse
-     * movements
+     * When docked is set to true paddle follows mouse movements
      */
-    public void dockPaddle(){
+    public void dockPaddle() {
         docked = true;
     }
-    
+
+    /**
+     * Stop following mouse
+     */
     public void undockPaddle() {
         docked = false;
     }
-    
-    public boolean docked(){
+
+    /**
+     * 
+     * @return if false paddle is stationary else following mouse
+     */
+    public boolean docked() {
         return docked;
     }
 

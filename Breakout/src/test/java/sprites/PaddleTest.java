@@ -13,7 +13,7 @@ public class PaddleTest {
 
     @Test
     public void constructorWorking() {
-        test(25, 60);
+        test(25, 60, false);
     }
 
     @Test
@@ -31,25 +31,25 @@ public class PaddleTest {
     @Test
     public void paddleGrowsCorrectly() {
         paddle.changeSize(25);
-        test(25, 85);
+        test(25, 85, false);
     }
 
     @Test
     public void paddleCantGetLargerThanMaxWidth() {
-        paddle.changeSize(150);
+        paddle.changeSize(500);
         testWidth(150);
     }
 
     @Test
     public void paddleCantBeSmallerThanMinWidth() {
-        paddle.changeSize(-100);
-        test(25, 30);
+        paddle.changeSize(-500);
+        test(25, 30, false);
     }
 
     @Test
     public void tinyPaddleTest() {
         paddle.changeSize(-20);
-        test(25, 40);
+        test(25, 40, false);
     }
 
     @Test
@@ -57,9 +57,23 @@ public class PaddleTest {
         assertEquals(paddle.getCenter(), 30);
     }
 
-    private void test(int h, int w) {
+    @Test
+    public void paddleCanBeDocked() {
+        paddle.dockPaddle();
+        assertEquals(true, paddle.docked());
+    }
+
+    @Test
+    public void dockingAndUndockingWorks() {
+        paddle.dockPaddle();
+        paddle.undockPaddle();
+        assertEquals(false, paddle.docked());
+    }
+
+    private void test(int h, int w, boolean docked) {
         testHeight(h);
         testWidth(w);
+        assertEquals(docked, paddle.docked());
     }
 
     private void testWidth(int w) {

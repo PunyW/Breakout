@@ -8,73 +8,78 @@ import sprites.Paddle;
 
 public class BallWallCollisionTest {
 
-    private final Ball ball;
+    private Ball ball;
     private final Player player;
-    private final BallWallCollision cd;
+    private BallWallCollision cd;
     private final Paddle paddle;
 
     public BallWallCollisionTest() {
-        paddle = new Paddle(60, 175, 20, 60, 200);
-        cd = new BallWallCollision(200, 200);
-        ball = new Ball(100, 100, 10, 10);
-        ball.setDy(0);
-        ball.setDx(0);
+        paddle = new Paddle(30, 175, 20, 60, 200);
         player = new Player(1);
-        ball.launchBall();
-        ball.setPaddle(paddle);
+        cd = new BallWallCollision(200, 200);
     }
 
     @Test
     public void ballCollidesWithRightWall() {
-        ball.setDx(50);
-        moveBall();
-        assertEquals(-50, ball.getDx());
+        // Ball(x, y, height, width
+        ball = new Ball(185, 100, 15, 15);
+        collision(false);
+        ball.launchBall();
+        ball.move();
+        checkPlayer(1, 0);
+        // Ball has collided with right wall, reverse dX and move once and check 
+        // position
+        checkBall(-5, -5, 180, 95);
     }
 
     @Test
     public void ballCollidesWithLeftWall() {
-        ball.setDx(-50);
-        moveBall();
-        assertEquals(50, ball.getDx());
+        ball = new Ball(5, 100, 15, 15);
+        ball.setDx(-5);
+        ball.launchBall();
+        ball.move();
+        collision(false);
+        ball.move();
+        checkPlayer(1, 0);
+        checkBall(5, -5, 5, 90);
     }
 
     @Test
     public void ballCollidesWithCeiling() {
-        ball.setDy(-50);
-        moveBall();
-        assertEquals(50, ball.getDy());
+        ball = new Ball(100, 0, 15, 15);
+        ball.launchBall();
+        collision(false);
+        ball.move();
+        checkPlayer(1, 0);
+        checkBall(5, 5, 105, 5);
     }
 
     @Test
     public void ballCollidesWithTheFloor() {
-        ball.setDy(50);
-        moveBall();
-        assertEquals(ball.getDefaultDy(), ball.getDy());
-        assertEquals(ball.getDefaultDx(), ball.getDx());
-    }
-
-    @Test
-    public void collisionWithFloorReducesLifeFromPlayer() {
-        ball.setDy(50);
-        ball.move();
-        ball.move();
-        assertEquals(true, cd.checkCollisions(ball, player));
+        // For floor collision we have to set the paddle or get nullpointer
+        ball = new Ball(100, 185, 15, 15);
+        ball.setPaddle(paddle);
+        ball.launchBall();
+        collision(true);
         checkPlayer(0, 0);
-    }
-    
-    @Test
-    public void collisionsDoesntIncreaseScore() {
-        
+        assertEquals(false, ball.moving());
+        checkBall(5, -5, paddle.getCenter() - ball.getWidth() / 2, paddle.getY() - (ball.getHeight() + 1));
     }
 
-    private void moveBall() {
-        ball.move();
-        ball.move();
-        cd.checkCollisions(ball, player);
+    private void collision(boolean reduceLife) {
+        assertEquals(reduceLife, cd.checkCollisions(ball, player));
     }
-    
+
     private void checkPlayer(int lives, int score) {
         assertEquals(lives, player.getLives());
         assertEquals(score, player.getScore());
+    }
+
+    private void checkBall(int dX, int dY, int x, int y) {
+        assertEquals(dX, ball.getDx());
+        assertEquals(dY, ball.getDy());
+        assertEquals(x, ball.getX());
+        assertEquals(y, ball.getY());
+
     }
 }

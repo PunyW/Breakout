@@ -45,7 +45,7 @@ public class PaddleMoveTest {
     @Test
     public void paddleWontGoPastTheScreenOnTheRight() {
         paddle.move(200);
-        testX(200 - paddle.width - 8);
+        testX(200 - paddle.width);
     }
 
     private void testX(int x) {

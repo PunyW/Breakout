@@ -28,12 +28,12 @@ public class Gui implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Breakout");
-        frame.setPreferredSize(new Dimension(800, 640));
+        frame.setPreferredSize(new Dimension(807, 640));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         createComponents(frame.getContentPane(), 800, 640);
-        frame.setResizable(false);
         frame.pack();
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 

@@ -41,7 +41,7 @@ public class Canvas extends JPanel implements Updatable {
         GameStates gameState = gsm.getState();
         switch (gameState) {
             case MENUSTATE:
-                paintMenuState(g);
+                menuCanvas.paint(g);
                 break;
             case PLAYSTATE:
                 playCanvas.paint(g);
@@ -58,10 +58,6 @@ public class Canvas extends JPanel implements Updatable {
                 break;
         }
         g.dispose();
-    }
-
-    private void paintMenuState(Graphics g) {
-        menuCanvas.paint(g);
     }
 
     private void paintHelp(Graphics g) {

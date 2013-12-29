@@ -58,7 +58,7 @@ public class BallWallCollision {
      * @param ball 
      */
     private void checkRightWall(Ball ball) {
-        if (ball.getX() + ball.getWidth() * 2 >= width) {
+        if (ball.getX() + ball.getWidth() >= width) {
             ball.reverseHorizontalMomentum();
         }
     }
@@ -84,7 +84,7 @@ public class BallWallCollision {
      * @return returns true if the player has 0 lives left
      */
     private boolean checkFloor(Ball ball, Player player) {
-        if (ball.getY() + 15 + ball.getHeight() * 2 >= height) {
+        if (ball.getY() + ball.getHeight() >= height) {
             ball.resetBall();
             player.loseLife();
             if (player.getLives() == 0) {
