@@ -46,7 +46,7 @@ public class GameKeyListener implements KeyListener {
 
             if (e.getKeyChar() == KeyEvent.VK_SPACE) {
                 ball.launchBall();
-                paddle.undockPaddle();
+                paddle.dockPaddle();
             }
         }
 

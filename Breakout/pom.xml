@@ -48,6 +48,11 @@
                         <param>entities.Player*</param>
                         <param>collisiondetection.*</param>
                     </targetClasses>
+                    <targetTests>
+                        <param>sprites.*</param>
+                        <param>entities.Player*</param>
+                        <param>collisiondetection.*</param>
+                    </targetTests>
                 </configuration>
             </plugin>
             <plugin>
