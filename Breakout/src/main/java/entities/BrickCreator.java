@@ -12,20 +12,25 @@ public class BrickCreator {
 
     /**
      *
-     * @param width     frame width
-     * @param height    frame height
+     * @param width frame width
+     * @param height frame height
      */
     public BrickCreator(int width, int height) {
         frameWidth = width;
         frameHeight = height;
     }
 
+    public BrickCreator() {
+        this.frameWidth = 0;
+        this.frameHeight = 0;
+    }
+
     /**
      * Generate array of Bricks
-     * 
-     * @param   h how many bricks on top of each other
-     * @param   w how many bricks in each row
-     * @return  New generated Brick array
+     *
+     * @param h how many bricks on top of each other
+     * @param w how many bricks in each row
+     * @return New generated Brick array
      */
     public Brick[][] createBricks(int h, int w) {
         Brick[][] brickLayout = new Brick[h][w];

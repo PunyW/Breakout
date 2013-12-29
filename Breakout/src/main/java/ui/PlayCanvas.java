@@ -49,6 +49,8 @@ public class PlayCanvas {
                         g.setColor(Color.BLUE);
                     }
                     g.fill3DRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), true);
+                    g.setColor(Color.BLACK);
+                    g.draw3DRect(brick.getX(), brick.getY(), brick.getWidth(), brick.getHeight(), false);
                 }
             }
         }

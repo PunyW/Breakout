@@ -68,6 +68,13 @@ public class BallPaddleCollisionTest {
         move();
         test(5, 5, 94, 190);
     }
+    
+    @Test
+    public void noCollisionWorks() {
+        ball = new Ball(50, 50, 15, 15);
+        move();
+        test(5, 5, 55, 55);
+    }
 
     private void move() {
         ball.setDy(5);
