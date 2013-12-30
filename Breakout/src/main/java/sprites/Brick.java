@@ -10,6 +10,7 @@ public class Brick extends Sprite {
     private boolean alive;
 
     /**
+     * Constructor for Brick.
      *
      * @param hitPoints How many hits the brick can take before being destroyed
      * @param x x position of the brick
@@ -19,7 +20,11 @@ public class Brick extends Sprite {
         // Hard coded size for now
         super(x, y, 20, 40);
         this.hitPoints = hitPoints;
-        alive = true;
+        if (hitPoints == 0) {
+            alive = false;
+        } else {
+            alive = true;
+        }
     }
 
     public int getHitPoints() {

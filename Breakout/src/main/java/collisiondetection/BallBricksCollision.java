@@ -16,12 +16,12 @@ public class BallBricksCollision {
     }
 
     /**
-     * Loops through the array of bricks and checks if any of the bricks collides
-     * with the ball.
-     * 
-     * @param bricks    Array of the bricks
-     * @param ball      The ball which collision is being inspected
-     * @param player    Player who is playing the game
+     * Loops through the array of bricks and checks if any of the bricks
+     * collides with the ball.
+     *
+     * @param bricks Array of the bricks
+     * @param ball The ball which collision is being inspected
+     * @param player Player who is playing the game
      */
     public void checkCollisions(Brick[][] bricks, Ball ball, Player player) {
         for (int i = 0; i < bricks.length; i++) {
@@ -33,14 +33,15 @@ public class BallBricksCollision {
 
     /**
      * Method for checking collision between a Brick and the ball.
-     * <p> 
+     * <p>
      * If the ball is colliding with the brick, depending on where the ball
-     * collides with the brick, the horizontal or vertical momentum of the ball 
-     * is reversed. When ball collides with the brick players score is increased.
-     * 
-     * @param ball      Ball which is being inspected
-     * @param brick     Brick which is being inspected
-     * @param player    Player who is playing
+     * collides with the brick, the horizontal or vertical momentum of the ball
+     * is reversed. When ball collides with the brick players score is
+     * increased.
+     *
+     * @param ball Ball which is being inspected
+     * @param brick Brick which is being inspected
+     * @param player Player who is playing
      */
     private void checkCollision(Ball ball, Brick brick, Player player) {
         if (!brick.alive()) {
@@ -50,29 +51,26 @@ public class BallBricksCollision {
         Rectangle ballRect = ball.getCollisionRect();
         Rectangle brickRect = brick.getCollisionRect();
 
-        Point ballRight = new Point(ballRect.x + ballRect.width + 1, ballRect.y);
-        Point ballLeft = new Point(ballRect.x - 1, ballRect.y);
-        Point ballTop = new Point(ballRect.x, ballRect.y - 1);
-        Point ballBottom = new Point(ballRect.x, ballRect.y + ballRect.height + 1);
+        Point ballRight = new Point(ballRect.x + ballRect.width + 2, ballRect.y + 1);
+        Point ballLeft = new Point(ballRect.x - 2, ballRect.y + 1);
+        Point ballTop = new Point(ballRect.x, ballRect.y - 2);
+        Point ballBottom = new Point(ballRect.x, ballRect.y + ballRect.height + 2);
 
         if (ballRect.intersects(brickRect)) {
 
             if (brickRect.contains(ballRight)) {
                 ball.reverseHorizontalMomentum();
-            }
-            if (brickRect.contains(ballLeft)) {
+            } else if (brickRect.contains(ballLeft)) {
                 ball.reverseHorizontalMomentum();
             }
             if (brickRect.contains(ballTop)) {
                 ball.reverseVerticalMomentum();
-            }
-            if (brickRect.contains(ballBottom)) {
+            } else if (brickRect.contains(ballBottom)) {
                 ball.reverseVerticalMomentum();
             }
             brick.hit();
             player.increaseScore(10);
         }
-
     }
 
 }

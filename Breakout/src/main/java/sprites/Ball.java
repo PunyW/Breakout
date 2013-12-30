@@ -123,14 +123,16 @@ public class Ball extends Sprite {
     }
 
     /**
-     * Change the horizontal movement adjustment
+     * Reverse horizontal movement. If ball was moving left change it to move
+     * right and vice versa
      */
     public void reverseHorizontalMomentum() {
         dx = -dx;
     }
 
     /**
-     * Change the vertical movement adjustment
+     * Reverse vertical movement. If ball was moving upwards change it to move
+     * downwards and vice versa
      */
     public void reverseVerticalMomentum() {
         dy = -dy;

@@ -17,8 +17,11 @@ public class GameKeyListener implements KeyListener {
     private final Paddle paddle;
 
     /**
-     *
-     * @param gsm GameStateManager
+     * Listens for players input from keyboard.
+     * 
+     * @param gsm       GameStateManager
+     * @param ball      Game ball
+     * @param paddle    Players paddle
      */
     public GameKeyListener(GameStateManager gsm, Ball ball, Paddle paddle) {
         this.gsm = gsm;
