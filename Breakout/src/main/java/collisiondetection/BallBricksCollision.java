@@ -52,8 +52,8 @@ public class BallBricksCollision {
         Rectangle brickRect = brick.getCollisionRect();
 
         Point ballRight = new Point(ballRect.x + ballRect.width + 2, ballRect.y + 1);
-        Point ballLeft = new Point(ballRect.x - 2, ballRect.y + 1);
-        Point ballTop = new Point(ballRect.x, ballRect.y - 2);
+        Point ballLeft = new Point(ballRect.x - 3, ballRect.y + 1);
+        Point ballTop = new Point(ballRect.x + 1, ballRect.y - 2);
         Point ballBottom = new Point(ballRect.x, ballRect.y + ballRect.height + 2);
 
         if (ballRect.intersects(brickRect)) {

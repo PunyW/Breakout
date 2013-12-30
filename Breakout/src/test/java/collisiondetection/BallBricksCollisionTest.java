@@ -49,18 +49,19 @@ public class BallBricksCollisionTest {
      * BrickCreator creates the Brick at 50, 50. With a size of w: 40 h: 20
      * 
      */
-//    @Test
-//    public void collisionOnRightSideOfBrick() {
-//        // Bricks right side is at 90'
-//        ball = new Ball(89, 60, 15, 15);
-//        ball.launchBall();
-//        ball.setDx(-5);
-//        cd.checkCollisions(bricks, ball, player);
-//        ball.move();
-//        testBall(5, -5, 94, 65);
-//        testBrick(0, false);
-//        testPlayer(10);
-//    }
+    @Test
+    public void collisionOnRightSideOfBrick() {
+        // Bricks right side is at 90'
+        ball = new Ball(89, 60, 15, 15);
+        ball.launchBall();
+        ball.setDx(-5);
+        cd.checkCollisions(bricks, ball, player);
+        ball.move();
+        testBrick(0, false);
+        testPlayer(10);
+        testBall(5, -5, 94, 55);
+    }
+
     @Test
     public void collisionOnBottomOfBrick() {
         // Bricks bottom side is at 70
