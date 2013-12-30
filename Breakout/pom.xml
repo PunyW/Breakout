@@ -46,7 +46,7 @@
                     <targetClasses>
                         <param>sprites.*</param>
                         <param>entities.Player*</param>
-                        <param>collisiondetection.*</param>
+                        <param>collisiondetection.Ball*</param>
                     </targetClasses>
                     <targetTests>
                         <param>sprites.*</param>
