@@ -11,7 +11,8 @@ public class BrickCreator {
     private final int frameWidth, frameHeight;
 
     /**
-     *
+     * Constructor for generating brick layouts.
+     * 
      * @param width frame width
      * @param height frame height
      */
@@ -30,7 +31,7 @@ public class BrickCreator {
      *
      * @param h how many bricks on top of each other
      * @param w how many bricks in each row
-     * @return New generated Brick array
+     * @return generated Brick[][] array
      */
     public Brick[][] createBricks(int h, int w) {
         Brick[][] brickLayout = new Brick[h][w];

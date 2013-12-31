@@ -7,8 +7,8 @@ package sprites;
 public class Ball extends Sprite {
 
     /**
-     * @param dx    balls horizontal movement
-     * @param dy    balls vertical movement
+     * @param dx balls horizontal movement
+     * @param dy balls vertical movement
      */
     private int dx, dy, defaultDX, defaultDY;
     private Paddle paddle;
@@ -31,10 +31,10 @@ public class Ball extends Sprite {
     /**
      * Generate new Ball.
      *
-     * @param x         Initial x position of the Ball.
-     * @param y         Initial y position of the Ball.
-     * @param height    Height of the Ball.
-     * @param width     Width of the Ball.
+     * @param x Initial x position of the Ball.
+     * @param y Initial y position of the Ball.
+     * @param height Height of the Ball.
+     * @param width Width of the Ball.
      */
     public Ball(int x, int y, int height, int width) {
         super(x, y, height, width);
@@ -51,9 +51,10 @@ public class Ball extends Sprite {
     }
 
     /**
-     * Assign a paddle for the ball, this is the paddle we want the ball to reset into.
-     * 
-     * @param paddle    the paddle that is being assigned for the ball
+     * Assign a paddle for the ball, this is the paddle we want the ball to
+     * reset into.
+     *
+     * @param paddle the paddle that is being assigned for the ball
      */
     public void setPaddle(Paddle paddle) {
         this.paddle = paddle;
@@ -96,20 +97,6 @@ public class Ball extends Sprite {
         }
     }
 
-//    private void increaseSpeed() {
-//        if (dy < 0) {
-//            dy--;
-//            if (dy < -maxSpeed) {
-//                dy = -maxSpeed;
-//            }
-//        } else {
-//            dy++;
-//            if (dy > maxSpeed) {
-//                dy = maxSpeed;
-//            }
-//        }
-//    }
-    
     /**
      * Set balls movement true, which allows moving the ball
      */
@@ -139,8 +126,8 @@ public class Ball extends Sprite {
     }
 
     /**
-     * Reset the ball on top of the paddle, in the middle of the paddle, and change
-     * movement into false
+     * Reset the ball on top of the paddle, in the middle of the paddle, and
+     * change movement into false
      */
     public void resetBall() {
         moving = false;

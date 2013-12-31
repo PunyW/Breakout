@@ -12,9 +12,18 @@ import java.awt.Graphics2D;
  */
 public class PauseCanvas {
 
+    /**
+     * Canvas for pause screen.
+     */
     public PauseCanvas() {
     }
 
+    /**
+     * Render the pause information
+     * 
+     * @param g Graphics paintbrush
+     * @param height frame height
+     */
     public void paint(Graphics g, int height) {
         Graphics2D g2 = (Graphics2D) g.create();
 

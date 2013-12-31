@@ -24,17 +24,40 @@ public class Breakout extends Timer implements ActionListener {
     private boolean running;
     private GameStateManager gsm;
 
+    /**
+     * Constructor for the breakout game., paddle width set to 60 px.
+     * 
+     * @param width     frame width
+     * @param height    frame height
+     */
     public Breakout(int width, int height) {
         super(1000, null);
         init(width, height, 60);
     }
 
-    // Constructor for custom paddle size
+    /**
+     * Constructor for the breakout game, with custom paddle width.
+     * 
+     * @param width         frame width
+     * @param height        frame height
+     * @param paddleWidth   paddle width
+     */
     public Breakout(int width, int height, int paddleWidth) {
         super(1000, null);
         init(width, height, paddleWidth);
     }
 
+    /**
+     * Initialize the breakout game.
+     * 
+     * <p> Create new paddle with given width and create new ball and place it atop
+     * the paddle, create new bricks. Initialize the game state manager and
+     * the collision detection manager. 
+     * 
+     * @param width         frame width
+     * @param height        frame height
+     * @param paddleWidth   paddle width
+     */
     private void init(int width, int height, int paddleWidth) {
         this.running = true;
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth, width);

@@ -67,7 +67,7 @@ public class Canvas extends JPanel implements Updatable {
     }
 
     /**
-     *
+     * Repaint the canvas.
      */
     @Override
     public void update() {

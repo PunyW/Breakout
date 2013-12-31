@@ -9,13 +9,20 @@ import java.awt.Graphics;
  */
 public class MenuCanvas {
 
+    /**
+     * Canvas which handles the rendering of menu
+     */
     public MenuCanvas() {
 
     }
 
+    /**
+     * Render the menu screen.
+     *
+     * @param g Graphics paintbrush
+     */
     public void paint(Graphics g) {
         g.setColor(Color.red);
-        g.fill3DRect(50, 50, 150, 150, true);
 
         g.dispose();
     }

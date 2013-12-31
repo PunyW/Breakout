@@ -18,7 +18,7 @@ public class CollisionDetectionManager {
      *
      * @param width     frame width
      * @param height    frame height
-     * @param paddle    games paddle
+     * @param paddle    game paddle
      */
     public CollisionDetectionManager(int width, int height, Paddle paddle) {
         bwc = new BallWallCollision(width, height);
@@ -33,7 +33,7 @@ public class CollisionDetectionManager {
      * @param bricks    Array of bricks that are being checked for
      * @param ball      Ball which is being inspected
      * @param player    Player who is playing the game
-     * @return  returns true if the player has 0 lives left
+     * @return          returns true if the player has 0 lives left
      */
     public boolean collisions(Brick[][] bricks, Ball ball, Player player) {
         // Ball & Paddle collision

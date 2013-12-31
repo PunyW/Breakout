@@ -34,10 +34,8 @@ public class BallBricksCollision {
     /**
      * Method for checking collision between a Brick and the ball.
      * <p>
-     * If the ball is colliding with the brick, depending on where the ball
-     * collides with the brick, the horizontal or vertical momentum of the ball
-     * is reversed. When ball collides with the brick players score is
-     * increased.
+     * If ball is colliding with a brick, check which side of the ball collides
+     * and reverse the correct movement adjustment.
      *
      * @param ball Ball which is being inspected
      * @param brick Brick which is being inspected
@@ -56,6 +54,10 @@ public class BallBricksCollision {
         Point ballTop = new Point(ballRect.x + 1, ballRect.y - 2);
         Point ballBottom = new Point(ballRect.x, ballRect.y + ballRect.height + 2);
 
+        /*
+        Check if the collision rectangles intersects each other, if they do 
+        check which side of the ball is colliding
+        */
         if (ballRect.intersects(brickRect)) {
 
             if (brickRect.contains(ballRight)) {

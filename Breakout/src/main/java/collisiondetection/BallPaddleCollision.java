@@ -13,7 +13,7 @@ public class BallPaddleCollision {
     private final Paddle paddle;
 
     /**
-     *
+     * 
      * @param paddle the game paddle
      */
     public BallPaddleCollision(Paddle paddle) {

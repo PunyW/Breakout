@@ -19,6 +19,13 @@ public class PlayCanvas {
     private final int width, height;
     private final GameStateManager gsm;
 
+    /**
+     * Canvas for game objects
+     * 
+     * @param breakout  main game
+     * @param width     frame width
+     * @param height    frame height
+     */
     public PlayCanvas(Breakout breakout, int width, int height) {
         this.breakout = breakout;
         this.width = width;
@@ -26,6 +33,12 @@ public class PlayCanvas {
         this.gsm = breakout.getGameStateManager();
     }
 
+    /**
+     * Render game objects.
+     * <p> Get paddle, ball and bricks from the breakout class, and render each
+     * on the screen. Also get player info from breakout and render on screen.
+     * @param g Paintbrush
+     */
     public void paint(Graphics g) {
         // Paint paddle
         Paddle paddle = breakout.getPaddle();

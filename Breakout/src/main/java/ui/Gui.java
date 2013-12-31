@@ -37,6 +37,13 @@ public class Gui implements Runnable {
         frame.setVisible(true);
     }
 
+    /**
+     * Create and add our listeners and canvas to the frame.
+     * 
+     * @param container
+     * @param w frame width
+     * @param h frame height
+     */
     private void createComponents(Container container, int w, int h) {
         canvas = new Canvas(breakout, w, h);
         container.add(canvas);
@@ -49,18 +56,10 @@ public class Gui implements Runnable {
         frame.addMouseMotionListener(pmml);
     }
 
-    /**
-     *
-     * @return
-     */
     public JFrame getFrame() {
         return frame;
     }
 
-    /**
-     *
-     * @return
-     */
     public Updatable getUpdatable() {
         return this.canvas;
     }
