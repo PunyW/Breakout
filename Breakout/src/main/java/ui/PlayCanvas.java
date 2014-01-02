@@ -13,7 +13,7 @@ import sprites.Paddle;
  *
  * @author Joel
  */
-public class PlayCanvas {
+public class PlayCanvas implements Canvas {
 
     private final Breakout breakout;
     private final int width, height;
@@ -21,10 +21,10 @@ public class PlayCanvas {
 
     /**
      * Canvas for game objects
-     * 
-     * @param breakout  main game
-     * @param width     frame width
-     * @param height    frame height
+     *
+     * @param breakout main game
+     * @param width frame width
+     * @param height frame height
      */
     public PlayCanvas(Breakout breakout, int width, int height) {
         this.breakout = breakout;
@@ -35,10 +35,13 @@ public class PlayCanvas {
 
     /**
      * Render game objects.
-     * <p> Get paddle, ball and bricks from the breakout class, and render each
-     * on the screen. Also get player info from breakout and render on screen.
+     * <p>
+     * Get paddle, ball and bricks from the breakout class, and render each on
+     * the screen. Also get player info from breakout and render on screen.
+     *
      * @param g Paintbrush
      */
+    @Override
     public void paint(Graphics g) {
         // Paint paddle
         Paddle paddle = breakout.getPaddle();

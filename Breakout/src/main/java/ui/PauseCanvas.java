@@ -10,21 +10,21 @@ import java.awt.Graphics2D;
  *
  * @author Joel
  */
-public class PauseCanvas {
+public class PauseCanvas implements Canvas {
+
+    private final int height;
 
     /**
      * Canvas for pause screen.
-     */
-    public PauseCanvas() {
-    }
-
-    /**
-     * Render the pause information
-     * 
-     * @param g Graphics paintbrush
+     *
      * @param height frame height
      */
-    public void paint(Graphics g, int height) {
+    public PauseCanvas(int height) {
+        this.height = height;
+    }
+
+    @Override
+    public void paint(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
 
         g2.setColor(Color.BLACK);
@@ -37,4 +37,5 @@ public class PauseCanvas {
         g.drawString("Game is paused", 240, height / 2 - 40);
         g.drawString("Hit Space to continue", 190, height / 2);
     }
+
 }

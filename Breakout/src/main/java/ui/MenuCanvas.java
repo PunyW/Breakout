@@ -7,7 +7,7 @@ import java.awt.Graphics;
  *
  * @author Joel
  */
-public class MenuCanvas {
+public class MenuCanvas implements Canvas {
 
     /**
      * Canvas which handles the rendering of menu
@@ -16,11 +16,7 @@ public class MenuCanvas {
 
     }
 
-    /**
-     * Render the menu screen.
-     *
-     * @param g Graphics paintbrush
-     */
+    @Override
     public void paint(Graphics g) {
         g.setColor(Color.red);
 

@@ -14,7 +14,7 @@ import util.GameMouseMotionListener;
 public class Gui implements Runnable {
 
     private JFrame frame;
-    private Canvas canvas;
+    private CanvasManager canvas;
     private final Breakout breakout;
 
     /**
@@ -45,7 +45,7 @@ public class Gui implements Runnable {
      * @param h frame height
      */
     private void createComponents(Container container, int w, int h) {
-        canvas = new Canvas(breakout, w, h);
+        canvas = new CanvasManager(breakout, w, h);
         container.add(canvas);
 
         GameKeyListener pkl = new GameKeyListener(breakout.getGameStateManager(),
