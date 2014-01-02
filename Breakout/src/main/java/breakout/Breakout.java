@@ -92,7 +92,7 @@ public class Breakout extends Timer implements ActionListener {
 
             // Check for collisions, returns true if player has 0 lives left
             if (cd.collisions(bricks, ball, player)) {
-                gsm.setState(GameStates.ENDSCREEN);
+                gsm.setState(GameStates.DEFEAT);
             }
         }
 

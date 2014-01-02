@@ -82,7 +82,10 @@ public class PlayCanvas implements Canvas {
         g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
 
         if (!ball.moving()) {
-            g.drawString("Launch ball with spacebar", 250, height - 40);
+            // If player is dead dont print the launch help
+            if (breakout.getPlayer().getLives() > 0) {
+                g.drawString("Launch ball with spacebar", 250, height - 40);
+            }
         }
 
     }

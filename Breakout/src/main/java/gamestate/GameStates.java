@@ -6,5 +6,5 @@ package gamestate;
  */
 public enum GameStates {
 
-    MENUSTATE, PLAYSTATE, HELP, PAUSE, ENDSCREEN, NEXTLEVEL
+    MENUSTATE, PLAYSTATE, HELP, PAUSE, DEFEAT, NEXTLEVEL
 }

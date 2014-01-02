@@ -65,7 +65,7 @@ public class CanvasManager extends JPanel implements Updatable {
                 playCanvas.paint(g);
                 pauseCanvas.paint(g);
                 break;
-            case ENDSCREEN:
+            case DEFEAT:
                 playCanvas.paint(g);
                 defeatCanvas.paint(g);
                 break;
