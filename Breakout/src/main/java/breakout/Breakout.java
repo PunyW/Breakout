@@ -14,7 +14,7 @@ import gamestate.*;
 
 public class Breakout extends Timer implements ActionListener {
 
-    private int width, height;
+    private final int width, height;
     private Brick[][] bricks;
     private Ball ball;
     private Paddle paddle;
@@ -70,14 +70,14 @@ public class Breakout extends Timer implements ActionListener {
         bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager();
-        gsm.setState(GameStates.PLAYSTATE);
+//        gsm.setState(GameStates.PLAYSTATE);
         this.cd = new CollisionDetectionManager(width, height, paddle);
         addActionListener(this);
         setInitialDelay(10);
     }
-    
+
     /**
-     * 
+     *
      * @param paddleWidth Initial width of the game paddle
      */
     private void createGameObjects(int paddleWidth) {
@@ -87,7 +87,8 @@ public class Breakout extends Timer implements ActionListener {
     }
 
     /**
-     * Create new game, by resetting all the game objects and creating new bricks
+     * Create new game, by resetting all the game objects and creating new
+     * bricks
      */
     public void newGame() {
         paddle.reset();

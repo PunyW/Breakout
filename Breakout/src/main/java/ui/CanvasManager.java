@@ -26,7 +26,7 @@ public class CanvasManager extends JPanel implements Updatable {
     /**
      * Construct canvas manager, which is responsible for handling rendering of
      * the game.
-     * 
+     *
      * @param breakout breakout the game
      * @param width frame width
      * @param height frame height
@@ -45,12 +45,12 @@ public class CanvasManager extends JPanel implements Updatable {
      * @param h frame height
      */
     private void init(Breakout breakout, int w, int h) {
-        menuCanvas = new MenuCanvas();
+        menuCanvas = new MenuCanvas(breakout, gsm);
         playCanvas = new PlayCanvas(breakout, w, h);
         pauseCanvas = new PauseCanvas(h);
         defeatCanvas = new DefeatCanvas(breakout);
         bg = new BackgroundCanvas();
-        
+
     }
 
     @Override

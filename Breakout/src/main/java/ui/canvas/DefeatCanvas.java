@@ -16,6 +16,11 @@ public class DefeatCanvas implements Canvas {
 
     private final Player player;
 
+    /**
+     * Create the canvas for game over scenario
+     *
+     * @param breakout main game from where the player is fetch
+     */
     public DefeatCanvas(Breakout breakout) {
         player = breakout.getPlayer();
     }
