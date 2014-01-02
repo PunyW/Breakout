@@ -47,11 +47,15 @@ public class PlayCanvas implements Canvas {
         Paddle paddle = breakout.getPaddle();
         g.setColor(Color.BLACK);
         g.fill3DRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight(), true);
+        g.setColor(Color.DARK_GRAY);
+        g.draw3DRect(paddle.getX(), paddle.getY(), paddle.getWidth(), paddle.getHeight(), true);
 
         // Paint ball
         Ball ball = breakout.getBall();
         g.setColor(Color.RED);
         g.fillOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
+        g.setColor(Color.DARK_GRAY);
+        g.drawOval(ball.getX(), ball.getY(), ball.getWidth(), ball.getHeight());
 
         // Paint bricks
         Brick[][] bricks = breakout.getBricks();
@@ -73,9 +77,10 @@ public class PlayCanvas implements Canvas {
 
         // Print lives, score and launch help
         g.setFont(new Font("Century", 1, 20));
-        g.setColor(Color.BLACK);
         g.drawString("Lives: " + breakout.getPlayer().getLives(), 10, 30);
+        g.setColor(Color.WHITE);
         g.drawString("Score: " + breakout.getPlayer().getScore(), width - 150, 30);
+
         if (!ball.moving()) {
             g.drawString("Launch ball with spacebar", 250, height - 40);
         }
