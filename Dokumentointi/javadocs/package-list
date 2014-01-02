@@ -4,4 +4,6 @@ entities
 gamestate
 sprites
 ui
+ui.canvas
 util
+util.menus

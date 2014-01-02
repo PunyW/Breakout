@@ -21,6 +21,11 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.stefanbirkner</groupId>
+            <artifactId>system-rules</artifactId>
+            <version>1.4.0</version>
+        </dependency>
     </dependencies>
     
     <build>
@@ -44,14 +49,22 @@
                 <version>0.30</version>
                 <configuration>
                     <targetClasses>
-                        <param>sprites.*</param>
+                        <param>sprites.Ball*</param>
+                        <param>sprites.Brick*</param>
+                        <param>sprites.Paddle*</param>
+                        <param>sprites.Sprite*</param>
                         <param>entities.Player*</param>
-                        <param>collisiondetection.Ball*</param>
+                        <param>collisiondetection.B*</param>
+                        <param>util.menus.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>sprites.*</param>
+                        <param>util.menus.*</param>
+                        <param>sprites.Ball*</param>
+                        <param>sprites.Brick*</param>
+                        <param>sprites.Paddle*</param>
+                        <param>sprites.Sprite*</param>
                         <param>entities.Player*</param>
-                        <param>collisiondetection.*</param>
+                        <param>collisiondetection.B*</param>
                     </targetTests>
                 </configuration>
             </plugin>

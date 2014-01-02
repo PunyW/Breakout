@@ -32,7 +32,7 @@ public abstract class Menu {
      */
     public void decreaseChoice() {
         currentChoice--;
-        if(currentChoice < 0) {
+        if(currentChoice <= -1) {
             currentChoice = choices.size();
         }
     }

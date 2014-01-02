@@ -36,7 +36,7 @@ public class PaddleTest {
 
     @Test
     public void paddleCantGetLargerThanMaxWidth() {
-        paddle.changeSize(500);
+        paddle.changeSize(90);
         testWidth(150);
     }
 

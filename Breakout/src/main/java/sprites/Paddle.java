@@ -51,9 +51,9 @@ public class Paddle extends Sprite {
      * Check that paddle size is between min and max value, adjust accordingly.
      */
     private void checkSize() {
-        if (width < minWidth) {
+        if (width <= minWidth) {
             width = minWidth;
-        } else if (width > maxWidth) {
+        } else if (width >= maxWidth) {
             width = maxWidth;
         }
     }
@@ -62,9 +62,9 @@ public class Paddle extends Sprite {
      * Checks that the paddle isn't being positioned past the frame
      */
     private void checkPosition() {
-        if (x < 0) {
+        if (x <= 0) {
             x = 0;
-        } else if (x > frameWidth - width) {
+        } else if (x >= frameWidth - width) {
             x = frameWidth - width;
         }
     }
