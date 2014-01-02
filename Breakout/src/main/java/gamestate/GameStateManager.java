@@ -1,6 +1,9 @@
 package gamestate;
 
 import breakout.Breakout;
+import java.util.ArrayList;
+import util.menus.MainMenu;
+import util.menus.Menu;
 
 /**
  *
@@ -9,14 +12,17 @@ import breakout.Breakout;
 public class GameStateManager {
 
     private GameStates currentState;
+    private ArrayList<Menu> menus;
 
     /**
-     * Game State Manager for the game, simple functionality you can set new
-     * state, and get the current state.
+     * GameStateManger, which handles the current game states and menus
      *
+     * @param breakout
      */
-    public GameStateManager() {
+    public GameStateManager(Breakout breakout) {
         currentState = GameStates.MENUSTATE;
+        menus = new ArrayList<>();
+        menus.add(new MainMenu(breakout, this));
     }
 
     public void setState(GameStates newState) {
@@ -25,5 +31,9 @@ public class GameStateManager {
 
     public GameStates getState() {
         return currentState;
+    }
+    
+    public Menu currentMenu(int i) {
+        return menus.get(i);
     }
 }

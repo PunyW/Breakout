@@ -21,7 +21,7 @@ public abstract class Menu {
      */
     public void increaseChoice() {
         currentChoice++;
-        if(currentChoice > choices.size()) {
+        if(currentChoice >= choices.size()) {
             currentChoice = 0;
         }
     }
@@ -57,4 +57,11 @@ public abstract class Menu {
     public ArrayList<String> getChoices() {
         return choices;
     }
+    
+    /**
+     * Start the players choice
+     * 
+     * @param choice players choice
+     */
+    public abstract void start(int choice);
 }

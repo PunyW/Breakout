@@ -69,7 +69,7 @@ public class Breakout extends Timer implements ActionListener {
         this.running = true;
         bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
-        gsm = new GameStateManager();
+        gsm = new GameStateManager(this);
 //        gsm.setState(GameStates.PLAYSTATE);
         this.cd = new CollisionDetectionManager(width, height, paddle);
         addActionListener(this);

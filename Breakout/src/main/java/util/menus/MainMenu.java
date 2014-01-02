@@ -25,17 +25,28 @@ public class MainMenu extends Menu {
         choices.add("Quit Game");
     }
 
-    public void newGame() {
+    private void newGame() {
         breakout.newGame();
         gsm.setState(GameStates.PLAYSTATE);
     }
 
-    public void quitGame() {
+    private void quitGame() {
         System.exit(0);
     }
 
-    public void help() {
+    private void help() {
         gsm.setState(GameStates.HELP);
+    }
+
+    @Override
+    public void start(int choice) {
+        if(choice == 0) {
+            newGame();
+        } else if(choice == 1) {
+            help();
+        } else if(choice == 2) {
+            quitGame();
+        }
     }
 
 }

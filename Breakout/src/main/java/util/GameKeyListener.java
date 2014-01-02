@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import sprites.Ball;
 import sprites.Paddle;
+import util.menus.Menu;
 
 /**
  *
@@ -15,18 +16,20 @@ public class GameKeyListener implements KeyListener {
     private final GameStateManager gsm;
     private Ball ball;
     private final Paddle paddle;
+    private Menu currentMenu;
 
     /**
      * Listens for players input from keyboard.
-     * 
-     * @param gsm       GameStateManager
-     * @param ball      Game ball
-     * @param paddle    Players paddle
+     *
+     * @param gsm GameStateManager
+     * @param ball Game ball
+     * @param paddle Players paddle
      */
     public GameKeyListener(GameStateManager gsm, Ball ball, Paddle paddle) {
         this.gsm = gsm;
         this.ball = ball;
         this.paddle = paddle;
+        currentMenu = gsm.currentMenu(0);
     }
 
     @Override
@@ -35,6 +38,19 @@ public class GameKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        if (gsm.getState() == GameStates.MENUSTATE) {
+            if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                currentMenu.increaseChoice();
+            }
+            if (e.getKeyCode() == KeyEvent.VK_UP) {
+                currentMenu.decreaseChoice();
+            }
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                int choice = currentMenu.getCurrentChoice();
+                currentMenu.start(choice);
+            }
+        }
+
         if (gsm.getState() == GameStates.PAUSE) {
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 gsm.setState(GameStates.PLAYSTATE);

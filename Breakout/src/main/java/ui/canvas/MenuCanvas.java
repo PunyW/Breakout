@@ -9,6 +9,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 import util.menus.MainMenu;
+import util.menus.Menu;
 
 /**
  *
@@ -16,7 +17,7 @@ import util.menus.MainMenu;
  */
 public class MenuCanvas implements Canvas {
 
-    private final MainMenu menu;
+    private final Menu menu;
     ArrayList<String> choices;
 
     /**
@@ -28,7 +29,7 @@ public class MenuCanvas implements Canvas {
      * @param gsm Game State manager to be passed for MainMenu
      */
     public MenuCanvas(Breakout breakout, GameStateManager gsm) {
-        menu = new MainMenu(breakout, gsm);
+        menu = gsm.currentMenu(0);
         choices = menu.getChoices();
     }
 
@@ -38,25 +39,25 @@ public class MenuCanvas implements Canvas {
 
         g2.setColor(Color.BLACK);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
-        g2.fill3DRect(150, 40, 720, 400, true);
+        g2.fill3DRect(290, 350, 225, 150, true);
         g2.dispose();
-        
+
         g.setFont(new Font("Century", 1, 20));
-        
-        int startY = 240;
+
+        int startY = 400;
 
         for (int i = 0; i < choices.size(); i++) {
             String option = choices.get(i);
-            
+
             // Check if the current choice is being rendered, if it is change
             // the color to CYAN else render in WHITE
-            if(menu.getCurrentChoice() == i) {
+            if (menu.getCurrentChoice() == i) {
                 g.setColor(Color.CYAN);
             } else {
                 g.setColor(Color.WHITE);
             }
-            
-            g.drawString(option, 160, startY + (i * 25));
+
+            g.drawString(option, 330, startY + (i * 25));
         }
     }
 }
