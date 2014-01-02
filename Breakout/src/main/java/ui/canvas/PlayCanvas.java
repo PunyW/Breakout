@@ -1,4 +1,4 @@
-package ui;
+package ui.canvas;
 
 import breakout.Breakout;
 import gamestate.GameStateManager;

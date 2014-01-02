@@ -1,5 +1,7 @@
-package ui;
+package ui.canvas;
 
+import breakout.Breakout;
+import entities.Player;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
@@ -10,17 +12,12 @@ import java.awt.Graphics2D;
  *
  * @author Joel
  */
-public class PauseCanvas implements Canvas {
+public class DefeatCanvas implements Canvas {
 
-    private final int height;
+    private final Player player;
 
-    /**
-     * Canvas for pause screen.
-     *
-     * @param height frame height
-     */
-    public PauseCanvas(int height) {
-        this.height = height;
+    public DefeatCanvas(Breakout breakout) {
+        player = breakout.getPlayer();
     }
 
     @Override
@@ -29,13 +26,13 @@ public class PauseCanvas implements Canvas {
 
         g2.setColor(Color.BLACK);
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.75f));
-        g2.fill3DRect(150, height / 2 - 85, 525, 125, true);
+        g2.fill3DRect(40, 40, 720, 540, true);
         g2.dispose();
 
         g.setFont(new Font("Century", 1, 40));
         g.setColor(Color.WHITE);
-        g.drawString("Game is paused", 240, height / 2 - 40);
-        g.drawString("Hit Space to continue", 190, height / 2);
+        g.drawString("Game over", 275, 200);
+        g.drawString("Score: " + player.getScore(), 300, 250);
     }
 
 }

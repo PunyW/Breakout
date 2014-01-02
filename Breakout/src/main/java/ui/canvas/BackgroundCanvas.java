@@ -1,5 +1,6 @@
-package ui;
+package ui.canvas;
 
+import ui.canvas.Canvas;
 import java.awt.Graphics;
 import sprites.Background;
 

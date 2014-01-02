@@ -1,5 +1,10 @@
 package ui;
 
+import ui.canvas.BackgroundCanvas;
+import ui.canvas.DefeatCanvas;
+import ui.canvas.PauseCanvas;
+import ui.canvas.PlayCanvas;
+import ui.canvas.MenuCanvas;
 import breakout.Breakout;
 import gamestate.*;
 import java.awt.Graphics;
@@ -43,7 +48,7 @@ public class CanvasManager extends JPanel implements Updatable {
         menuCanvas = new MenuCanvas();
         playCanvas = new PlayCanvas(breakout, w, h);
         pauseCanvas = new PauseCanvas(h);
-        defeatCanvas = new DefeatCanvas();
+        defeatCanvas = new DefeatCanvas(breakout);
         bg = new BackgroundCanvas();
         
     }
