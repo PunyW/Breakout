@@ -136,4 +136,14 @@ public class Ball extends Sprite {
         dx = defaultDX;
     }
 
+    /**
+     * Hide the ball from the player and set moving to false.
+     */
+    public void disableBall() {
+        moving = false;
+        setPos(-50, -50);
+        dy = defaultDY;
+        dx = defaultDX;
+    }
+
 }

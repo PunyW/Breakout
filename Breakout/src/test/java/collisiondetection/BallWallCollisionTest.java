@@ -56,6 +56,18 @@ public class BallWallCollisionTest {
 
     @Test
     public void ballCollidesWithTheFloor() {
+        ball = new Ball(100, 185, 15, 15);
+        ball.setPaddle(paddle);
+        ball.launchBall();
+        player.increaseLives();
+        collision(false);
+        checkPlayer(1, 0);
+        checkBall(5, -5, paddle.getCenter() - ball.getWidth() / 2, paddle.getY() - (ball.getHeight() + 1));
+        assertEquals(false, ball.moving());
+    }
+
+    @Test
+    public void collisionWithFloorDisablesBallIfNoLivesLeft() {
         // For floor collision we have to set the paddle or get nullpointer
         ball = new Ball(100, 185, 15, 15);
         ball.setPaddle(paddle);
@@ -63,11 +75,11 @@ public class BallWallCollisionTest {
         collision(true);
         checkPlayer(0, 0);
         assertEquals(false, ball.moving());
-        checkBall(5, -5, paddle.getCenter() - ball.getWidth() / 2, paddle.getY() - (ball.getHeight() + 1));
+        checkBall(5, -5, -50, -50);
     }
 
-    private void collision(boolean reduceLife) {
-        assertEquals(reduceLife, cd.checkCollisions(ball, player));
+    private void collision(boolean livesLeft) {
+        assertEquals(livesLeft, cd.checkCollisions(ball, player));
     }
 
     private void checkPlayer(int lives, int score) {

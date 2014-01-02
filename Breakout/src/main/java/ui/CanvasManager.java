@@ -12,28 +12,46 @@ import javax.swing.JPanel;
 public class CanvasManager extends JPanel implements Updatable {
 
     private final GameStateManager gsm;
-    private final MenuCanvas menuCanvas;
-    private final PlayCanvas playCanvas;
-    private final PauseCanvas pauseCanvas;
-    private final Breakout breakout;
+    private MenuCanvas menuCanvas;
+    private PlayCanvas playCanvas;
+    private PauseCanvas pauseCanvas;
+    private DefeatCanvas defeatCanvas;
+    private BackgroundCanvas bg;
 
     /**
-     *
+     * Construct canvas manager, which is responsible for handling rendering of
+     * the game.
+     * 
      * @param breakout breakout the game
      * @param width frame width
      * @param height frame height
      */
     public CanvasManager(Breakout breakout, int width, int height) {
         this.gsm = breakout.getGameStateManager();
-        this.breakout = breakout;
+        init(breakout, width, height);
+
+    }
+
+    /**
+     * Initialize all the different canvas's
+     *
+     * @param breakout main game
+     * @param w frame width
+     * @param h frame height
+     */
+    private void init(Breakout breakout, int w, int h) {
         menuCanvas = new MenuCanvas();
-        playCanvas = new PlayCanvas(breakout, width, height);
-        pauseCanvas = new PauseCanvas(height);
+        playCanvas = new PlayCanvas(breakout, w, h);
+        pauseCanvas = new PauseCanvas(h);
+        defeatCanvas = new DefeatCanvas();
+        bg = new BackgroundCanvas();
+        
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        bg.paint(g);
 
         GameStates gameState = gsm.getState();
         switch (gameState) {
@@ -48,10 +66,13 @@ public class CanvasManager extends JPanel implements Updatable {
                 pauseCanvas.paint(g);
                 break;
             case ENDSCREEN:
-                paintEndScreen(g);
+                playCanvas.paint(g);
+                defeatCanvas.paint(g);
                 break;
             case HELP:
                 paintHelp(g);
+                break;
+            case NEXTLEVEL:
                 break;
         }
         g.dispose();
