@@ -6,7 +6,7 @@ package sprites;
  */
 public class Paddle extends Sprite {
 
-    private final int minWidth, maxWidth, frameWidth;
+    private final int minWidth, maxWidth, frameWidth, defaultWidth;
     private boolean docked;
 
     /**
@@ -22,6 +22,7 @@ public class Paddle extends Sprite {
         super(x, y, height, width);
         this.minWidth = 30;
         this.maxWidth = 150;
+        this.defaultWidth = 60;
         this.frameWidth = frameWidth;
         docked = false;
         checkSize();
@@ -95,15 +96,30 @@ public class Paddle extends Sprite {
     }
 
     /**
-     * 
+     *
      * @return if false paddle is stationary else following mouse
      */
     public boolean docked() {
         return docked;
     }
 
+    /**
+     * Set paddles x position into desired one, and check that it's within frame
+     * boundaries
+     *
+     * @param pos new x position for paddle
+     */
     public void setPosition(int pos) {
         this.x = pos;
         checkPosition();
+    }
+
+    /**
+     * Reset the paddle into the middle of the screen and change size to the
+     * default width
+     */
+    public void reset() {
+        width = defaultWidth;
+        x = frameWidth / 2 - 30;
     }
 }

@@ -48,4 +48,12 @@ public class Player {
     public void increaseScore(int n) {
         score += n;
     }
+    
+    /**
+     * Reset players lives to 3 and score to 0
+     */
+    public void reset() {
+        score = 0;
+        lives = 3;
+    }
 }

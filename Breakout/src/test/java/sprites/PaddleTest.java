@@ -69,6 +69,13 @@ public class PaddleTest {
         paddle.undockPaddle();
         assertEquals(false, paddle.docked());
     }
+    
+    @Test
+    public void resetWorks() {
+        paddle.changeSize(50);
+        paddle.reset();
+        testWidth(60);
+    }
 
     private void test(int h, int w, boolean docked) {
         testHeight(h);

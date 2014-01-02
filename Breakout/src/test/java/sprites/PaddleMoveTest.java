@@ -47,6 +47,13 @@ public class PaddleMoveTest {
         paddle.move(200);
         testX(200 - paddle.width);
     }
+    
+    @Test
+    public void resetWorks() {
+        paddle.move(200);
+        paddle.reset();
+        testX(70);
+    }
 
     private void testX(int x) {
         assertEquals(x, paddle.getX());

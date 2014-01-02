@@ -48,6 +48,14 @@ public class PlayerTest {
         player.increaseScore(100);
         checkStats(3, 110);
     }
+    
+    @Test
+    public void resetWorks() {
+        player.increaseLives();
+        player.increaseScore(100);
+        player.reset();
+        checkStats(3, 0);
+    }
 
     private void checkStats(int life, int score) {
         assertEquals(player.getLives(), life);
