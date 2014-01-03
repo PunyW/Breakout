@@ -107,7 +107,6 @@ public class Breakout extends Timer implements ActionListener {
     // Game Loop
     @Override
     public void actionPerformed(ActionEvent e) {
-        gsm.setState(GameStates.DEFEAT);
         if (!running) {
             return;
         }
