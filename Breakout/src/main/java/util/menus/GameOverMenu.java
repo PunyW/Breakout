@@ -8,18 +8,11 @@ import gamestate.GameStates;
  *
  * @author Joel
  */
-public final class MainMenu extends Menu {
+public final class GameOverMenu extends Menu {
 
-    public MainMenu(Breakout breakout, GameStateManager gsm) {
+    public GameOverMenu(Breakout breakout, GameStateManager gsm) {
         super(breakout, gsm);
         initChoices();
-    }
-
-    @Override
-    protected void initChoices() {
-        choices.add("New Game");
-        choices.add("Help");
-        choices.add("Quit Game");
     }
 
     private void newGame() {
@@ -31,10 +24,6 @@ public final class MainMenu extends Menu {
         System.exit(0);
     }
 
-    private void help() {
-        gsm.setState(GameStates.HELP);
-    }
-
     @Override
     public void start(int choice) {
         switch (choice) {
@@ -42,12 +31,15 @@ public final class MainMenu extends Menu {
                 newGame();
                 break;
             case 1:
-                help();
-                break;
-            case 2:
                 quitGame();
                 break;
         }
+    }
+
+    @Override
+    protected void initChoices() {
+        choices.add("New Game");
+        choices.add("Quit Game");
     }
 
 }

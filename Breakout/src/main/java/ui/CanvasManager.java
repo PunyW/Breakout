@@ -1,10 +1,10 @@
 package ui;
 
 import ui.canvas.BackgroundCanvas;
-import ui.canvas.DefeatCanvas;
+import ui.canvas.GameOverCanvas;
 import ui.canvas.PauseCanvas;
 import ui.canvas.PlayCanvas;
-import ui.canvas.MenuCanvas;
+import ui.canvas.MainMenuCanvas;
 import breakout.Breakout;
 import gamestate.*;
 import java.awt.Graphics;
@@ -17,10 +17,10 @@ import javax.swing.JPanel;
 public class CanvasManager extends JPanel implements Updatable {
 
     private final GameStateManager gsm;
-    private MenuCanvas menuCanvas;
+    private MainMenuCanvas menuCanvas;
     private PlayCanvas playCanvas;
     private PauseCanvas pauseCanvas;
-    private DefeatCanvas defeatCanvas;
+    private GameOverCanvas defeatCanvas;
     private BackgroundCanvas bg;
 
     /**
@@ -45,10 +45,10 @@ public class CanvasManager extends JPanel implements Updatable {
      * @param h frame height
      */
     private void init(Breakout breakout, int w, int h) {
-        menuCanvas = new MenuCanvas(breakout, gsm);
+        menuCanvas = new MainMenuCanvas(breakout, gsm);
         playCanvas = new PlayCanvas(breakout, w, h);
         pauseCanvas = new PauseCanvas(h);
-        defeatCanvas = new DefeatCanvas(breakout);
+        defeatCanvas = new GameOverCanvas(breakout, gsm);
         bg = new BackgroundCanvas();
 
     }

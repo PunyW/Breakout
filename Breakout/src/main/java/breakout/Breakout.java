@@ -70,7 +70,6 @@ public class Breakout extends Timer implements ActionListener {
         bc = new BrickCreator(width, height);
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager(this);
-//        gsm.setState(GameStates.PLAYSTATE);
         this.cd = new CollisionDetectionManager(width, height, paddle);
         addActionListener(this);
         setInitialDelay(10);
@@ -105,8 +104,10 @@ public class Breakout extends Timer implements ActionListener {
         this.updatable = updatable;
     }
 
+    // Game Loop
     @Override
     public void actionPerformed(ActionEvent e) {
+        gsm.setState(GameStates.DEFEAT);
         if (!running) {
             return;
         }

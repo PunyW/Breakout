@@ -2,6 +2,7 @@ package gamestate;
 
 import breakout.Breakout;
 import java.util.ArrayList;
+import util.menus.GameOverMenu;
 import util.menus.MainMenu;
 import util.menus.Menu;
 
@@ -22,7 +23,12 @@ public class GameStateManager {
     public GameStateManager(Breakout breakout) {
         currentState = GameStates.MENUSTATE;
         menus = new ArrayList<>();
+        initMenus(breakout);
+    }
+
+    private void initMenus(Breakout breakout) {
         menus.add(new MainMenu(breakout, this));
+        menus.add(new GameOverMenu(breakout, this));
     }
 
     public void setState(GameStates newState) {
@@ -32,8 +38,8 @@ public class GameStateManager {
     public GameStates getState() {
         return currentState;
     }
-    
-    public Menu currentMenu(int i) {
+
+    public Menu getMenu(int i) {
         return menus.get(i);
     }
 }

@@ -29,7 +29,7 @@ public class GameKeyListener implements KeyListener {
         this.gsm = gsm;
         this.ball = ball;
         this.paddle = paddle;
-        currentMenu = gsm.currentMenu(0);
+        currentMenu = gsm.getMenu(0);
     }
 
     @Override
@@ -38,7 +38,15 @@ public class GameKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (gsm.getState() == GameStates.MENUSTATE) {
+        if (gsm.getState() == GameStates.MENUSTATE || gsm.getState() == GameStates.DEFEAT) {
+            // Change menu to the correct one
+            if(gsm.getState() == GameStates.MENUSTATE) {
+                currentMenu = gsm.getMenu(0);
+            } else {
+                currentMenu = gsm.getMenu(1);
+            }
+            
+            
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                 currentMenu.increaseChoice();
             }
