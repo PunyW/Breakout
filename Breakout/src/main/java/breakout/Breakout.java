@@ -96,6 +96,12 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
     }
 
+    public void newLevel() {
+        paddle.reset();
+        ball.resetBall();
+        bricks = bc.createBricks(10, 20);
+    }
+
     public boolean running() {
         return running;
     }
@@ -116,13 +122,34 @@ public class Breakout extends Timer implements ActionListener {
 
             // Check for collisions, returns true if player has 0 lives left
             if (cd.collisions(bricks, ball, player)) {
-                gsm.setState(GameStates.DEFEAT);
+                gsm.setState(GameStates.GAME_OVER);
                 paddle.undockPaddle();
             }
+        }
+        if(bricksDestroyed()) {
+            ball.disableBall();
+            newLevel();
+            gsm.setState(GameStates.LEVEL_CLEARED);
         }
 
         this.updatable.update();
         setDelay(1000 / 20);
+    }
+
+    /**
+     * Check if all the bricks have been destroyed
+     * @return returns false if some of the bricks still alive, true if all the
+     * bricks have been destroyed
+     */
+    public boolean bricksDestroyed() {
+        for (int i = 0; i < bricks.length; i++) {
+            for (int j = 0; j < bricks[0].length; j++) {
+                if (bricks[i][j].alive()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public Paddle getPaddle() {

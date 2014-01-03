@@ -9,6 +9,7 @@ import breakout.Breakout;
 import gamestate.*;
 import java.awt.Graphics;
 import javax.swing.JPanel;
+import ui.canvas.NextLevelCanvas;
 
 /**
  *
@@ -22,6 +23,7 @@ public class CanvasManager extends JPanel implements Updatable {
     private PauseCanvas pauseCanvas;
     private GameOverCanvas defeatCanvas;
     private BackgroundCanvas bg;
+    private NextLevelCanvas nextLCanvas;
 
     /**
      * Construct canvas manager, which is responsible for handling rendering of
@@ -34,7 +36,6 @@ public class CanvasManager extends JPanel implements Updatable {
     public CanvasManager(Breakout breakout, int width, int height) {
         this.gsm = breakout.getGameStateManager();
         init(breakout, width, height);
-
     }
 
     /**
@@ -50,6 +51,7 @@ public class CanvasManager extends JPanel implements Updatable {
         pauseCanvas = new PauseCanvas(h);
         defeatCanvas = new GameOverCanvas(breakout, gsm);
         bg = new BackgroundCanvas();
+        nextLCanvas = new NextLevelCanvas(breakout);
 
     }
 
@@ -70,14 +72,15 @@ public class CanvasManager extends JPanel implements Updatable {
                 playCanvas.paint(g);
                 pauseCanvas.paint(g);
                 break;
-            case DEFEAT:
+            case GAME_OVER:
                 playCanvas.paint(g);
                 defeatCanvas.paint(g);
                 break;
             case HELP:
                 paintHelp(g);
                 break;
-            case NEXTLEVEL:
+            case LEVEL_CLEARED:
+                nextLCanvas.paint(g);
                 break;
         }
         g.dispose();

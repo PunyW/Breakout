@@ -34,6 +34,7 @@ public final class GameOverMenu extends Menu {
                 quitGame();
                 break;
         }
+        resetMenu();
     }
 
     @Override

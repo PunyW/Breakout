@@ -38,7 +38,7 @@ public class GameKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (gsm.getState() == GameStates.MENUSTATE || gsm.getState() == GameStates.DEFEAT) {
+        if (gsm.getState() == GameStates.MENUSTATE || gsm.getState() == GameStates.GAME_OVER) {
             // Change menu to the correct one
             if(gsm.getState() == GameStates.MENUSTATE) {
                 currentMenu = gsm.getMenu(0);
@@ -71,9 +71,15 @@ public class GameKeyListener implements KeyListener {
                 paddle.undockPaddle();
             }
 
-            if (e.getKeyChar() == KeyEvent.VK_SPACE) {
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 ball.launchBall();
                 paddle.dockPaddle();
+            }
+        }
+        
+        if(gsm.getState() == GameStates.LEVEL_CLEARED) {
+            if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+                gsm.setState(GameStates.PLAYSTATE);
             }
         }
 

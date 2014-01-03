@@ -48,6 +48,7 @@ public final class MainMenu extends Menu {
                 quitGame();
                 break;
         }
+        resetMenu();
     }
 
 }

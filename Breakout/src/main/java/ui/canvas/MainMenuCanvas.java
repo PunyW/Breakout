@@ -4,9 +4,9 @@ import breakout.Breakout;
 import gamestate.GameStateManager;
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.ArrayList;
 import util.menus.Menu;
 
 /**
@@ -40,6 +40,10 @@ public class MainMenuCanvas implements Canvas {
         g2.fill3DRect(290, 350, 225, 150, true);
         g2.dispose();
 
+        g.setFont(new Font("Century", 1, 100));
+        g.setColor(Color.LIGHT_GRAY);
+        g.drawString("BREAKOUT", 85, 145);
+        
         painter.paintMenu(g, 400, 330, menu, 20);
     }
 }

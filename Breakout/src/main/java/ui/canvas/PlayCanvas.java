@@ -17,7 +17,6 @@ public class PlayCanvas implements Canvas {
 
     private final Breakout breakout;
     private final int width, height;
-    private final GameStateManager gsm;
 
     /**
      * Canvas for game objects
@@ -30,7 +29,6 @@ public class PlayCanvas implements Canvas {
         this.breakout = breakout;
         this.width = width;
         this.height = height;
-        this.gsm = breakout.getGameStateManager();
     }
 
     /**
@@ -87,6 +85,7 @@ public class PlayCanvas implements Canvas {
                 g.drawString("Launch ball with spacebar", 250, height - 40);
             }
         }
+        
 
     }
 
