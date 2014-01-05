@@ -3,7 +3,8 @@ package entities;
 import sprites.Brick;
 
 /**
- *
+ * Class that handles creating new bricks
+ * 
  * @author Joel
  */
 public class BrickCreator {
@@ -11,7 +12,7 @@ public class BrickCreator {
     private final int frameWidth, frameHeight;
 
     /**
-     * Constructor for generating brick layouts.
+     * Constructor for brick creator
      * 
      * @param width frame width
      * @param height frame height

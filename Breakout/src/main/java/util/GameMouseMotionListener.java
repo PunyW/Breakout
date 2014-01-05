@@ -5,7 +5,8 @@ import java.awt.event.MouseMotionListener;
 import sprites.Paddle;
 
 /**
- *
+ * Looks for mouse movements
+ * 
  * @author Joel
  */
 public class GameMouseMotionListener implements MouseMotionListener {
@@ -13,8 +14,8 @@ public class GameMouseMotionListener implements MouseMotionListener {
     private final Paddle paddle;
 
     /**
-     *
-     * @param paddle
+     * Create new GameMouseMotionListener
+     * @param paddle Paddle that can be moved with the mouse
      */
     public GameMouseMotionListener(Paddle paddle) {
         this.paddle = paddle;
@@ -25,9 +26,14 @@ public class GameMouseMotionListener implements MouseMotionListener {
 
     }
 
+    /**
+     * Get mouse x position and if paddle is docked to the mouse, center paddle
+     * to the mouse x
+     * 
+     * @param e mouse 
+     */
     @Override
     public void mouseMoved(MouseEvent e) {
-        // Center the paddle to the middle of the mouse
         if (paddle.docked()) {
             paddle.setPosition(e.getX() - paddle.getWidth() / 2);
         }

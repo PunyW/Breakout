@@ -5,7 +5,8 @@ import sprites.Ball;
 import sprites.Paddle;
 
 /**
- *
+ * Checks for Collisions between ball and paddle
+ * 
  * @author Joel
  */
 public class BallPaddleCollision {

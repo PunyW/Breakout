@@ -15,6 +15,12 @@ public abstract class Menu {
     protected final Breakout breakout;
     protected ArrayList<String> choices;
 
+    /**
+     * Create new Menu
+     * 
+     * @param breakout main game
+     * @param gsm  GameStateManager
+     */
     public Menu(Breakout breakout, GameStateManager gsm) {
         this.breakout = breakout;
         this.gsm = gsm;

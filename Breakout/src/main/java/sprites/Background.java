@@ -5,7 +5,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- *
+ * Class to hold the background image
+ * 
  * @author Joel
  */
 public class Background extends Sprite {

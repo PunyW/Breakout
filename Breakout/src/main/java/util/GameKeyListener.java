@@ -8,7 +8,8 @@ import sprites.Paddle;
 import util.menus.Menu;
 
 /**
- *
+ * Listens for player input
+ * 
  * @author Joel
  */
 public class GameKeyListener implements KeyListener {
@@ -19,7 +20,7 @@ public class GameKeyListener implements KeyListener {
     private Menu currentMenu;
 
     /**
-     * Listens for players input from keyboard.
+     * Create new GameKeyListener
      *
      * @param gsm GameStateManager
      * @param ball Game ball

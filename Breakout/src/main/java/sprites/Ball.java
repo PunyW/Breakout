@@ -29,7 +29,7 @@ public class Ball extends Sprite {
     }
 
     /**
-     * Generate new Ball.
+     * Generate new Ball, with custom starting position and size.
      *
      * @param x Initial x position of the Ball.
      * @param y Initial y position of the Ball.

@@ -4,7 +4,8 @@ import entities.Player;
 import sprites.Ball;
 
 /**
- *
+ * Checks for collisions between ball and the boundaries of the frame
+ * 
  * @author Joel
  */
 public class BallWallCollision {
@@ -14,8 +15,6 @@ public class BallWallCollision {
     private final int height;
 
     /**
-     * Constructor for collision detection between ball and the boundaries of
-     * frame.
      *
      * @param width frame width
      * @param height frame height

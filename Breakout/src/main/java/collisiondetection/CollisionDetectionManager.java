@@ -6,7 +6,8 @@ import sprites.Brick;
 import sprites.Paddle;
 
 /**
- *
+ * Collision Detection Manager which handles collision detections
+ * 
  * @author Joel
  */
 public class CollisionDetectionManager {

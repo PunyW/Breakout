@@ -3,7 +3,8 @@ package sprites;
 import java.awt.Rectangle;
 
 /**
- *
+ * Sprite that holds the basic attributes of certain game object
+ * 
  * @author Joel
  */
 public abstract class Sprite implements Collideable{
@@ -44,10 +45,7 @@ public abstract class Sprite implements Collideable{
         return width;
     }
 
-    /**
-     * 
-     * @return Returns a new Rectangle with the Sprites attributes
-     */
+
     @Override
     public Rectangle getCollisionRect() {
         Rectangle collisionRect = new Rectangle(this.x, this.y, this.width, this.height);

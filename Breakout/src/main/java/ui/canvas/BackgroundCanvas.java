@@ -1,11 +1,11 @@
 package ui.canvas;
 
-import ui.canvas.Canvas;
 import java.awt.Graphics;
 import sprites.Background;
 
 /**
- *
+ * Canvas which renders the backgrounds
+ * 
  * @author Joel
  */
 public class BackgroundCanvas implements Canvas {

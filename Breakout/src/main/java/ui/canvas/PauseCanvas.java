@@ -7,7 +7,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
- *
+ * Canvas which is handling the rendering of the Pause Screen
+ * 
  * @author Joel
  */
 public class PauseCanvas implements Canvas {
@@ -15,7 +16,7 @@ public class PauseCanvas implements Canvas {
     private final int height;
 
     /**
-     * Canvas for pause screen.
+     * Create new Pause Canvas
      *
      * @param height frame height
      */

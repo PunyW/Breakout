@@ -5,7 +5,8 @@ import gamestate.GameStateManager;
 import gamestate.GameStates;
 
 /**
- *
+ * Menu that handles the Game Over options
+ * 
  * @author Joel
  */
 public final class GameOverMenu extends Menu {

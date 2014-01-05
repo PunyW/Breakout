@@ -1,7 +1,8 @@
 package sprites;
 
 /**
- *
+ * Paddle that is used to play the game
+ * 
  * @author Joel
  */
 public class Paddle extends Sprite {

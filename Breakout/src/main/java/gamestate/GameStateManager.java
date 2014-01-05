@@ -7,7 +7,8 @@ import util.menus.MainMenu;
 import util.menus.Menu;
 
 /**
- *
+ * Game State Manager is responsible for handling current game state and menu
+ * 
  * @author Joel
  */
 public class GameStateManager {
@@ -16,8 +17,7 @@ public class GameStateManager {
     private ArrayList<Menu> menus;
 
     /**
-     * GameStateManger, which handles the current game states and menus
-     *
+     * Create new Game State Manager
      * @param breakout
      */
     public GameStateManager(Breakout breakout) {

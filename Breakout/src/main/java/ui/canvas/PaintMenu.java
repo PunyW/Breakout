@@ -6,7 +6,8 @@ import java.awt.Graphics;
 import util.menus.Menu;
 
 /**
- *
+ * Canvas which is handling the rendering of the menu options
+ * 
  * @author Joel
  */
 public class PaintMenu {

@@ -7,7 +7,8 @@ import sprites.Ball;
 import sprites.Brick;
 
 /**
- *
+ * Collision Detection between ball and bricks
+ * 
  * @author Joel
  */
 public class BallBricksCollision {

@@ -1,7 +1,8 @@
 package gamestate;
 
 /**
- *
+ * Different Game states
+ * 
  * @author Joel
  */
 public enum GameStates {

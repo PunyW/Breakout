@@ -12,7 +12,8 @@ import javax.swing.JPanel;
 import ui.canvas.NextLevelCanvas;
 
 /**
- *
+ * Canvas manager which is responsible for handling all the rendering of the game
+ * 
  * @author Joel
  */
 public class CanvasManager extends JPanel implements Updatable {
@@ -26,9 +27,8 @@ public class CanvasManager extends JPanel implements Updatable {
     private NextLevelCanvas nextLCanvas;
 
     /**
-     * Construct canvas manager, which is responsible for handling rendering of
-     * the game.
-     *
+     * Construct canvas manager.
+     * 
      * @param breakout breakout the game
      * @param width frame width
      * @param height frame height

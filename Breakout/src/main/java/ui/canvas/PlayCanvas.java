@@ -1,7 +1,6 @@
 package ui.canvas;
 
 import breakout.Breakout;
-import gamestate.GameStateManager;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -10,6 +9,7 @@ import sprites.Brick;
 import sprites.Paddle;
 
 /**
+ * Canvas which is handling the rendering of the Play state
  *
  * @author Joel
  */
@@ -19,7 +19,7 @@ public class PlayCanvas implements Canvas {
     private final int width, height;
 
     /**
-     * Canvas for game objects
+     * Create new PlayCanvas
      *
      * @param breakout main game
      * @param width frame width
@@ -85,7 +85,6 @@ public class PlayCanvas implements Canvas {
                 g.drawString("Launch ball with spacebar", 250, height - 40);
             }
         }
-        
 
     }
 

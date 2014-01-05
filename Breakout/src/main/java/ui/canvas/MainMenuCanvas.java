@@ -10,6 +10,7 @@ import java.awt.Graphics2D;
 import util.menus.Menu;
 
 /**
+ * Canvas which is handling the rendering of the Main Menu
  *
  * @author Joel
  */
@@ -18,10 +19,7 @@ public class MainMenuCanvas implements Canvas {
     private final Menu menu;
 
     /**
-     * Create menu canvas, which creates Main Menu
-     *
-     * Canvas which handles the rendering of menu
-     *
+     * Create new MainMenuCanvas
      * @param breakout main game to be passed for MainMenu
      * @param gsm Game State manager to be passed for MainMenu
      */
@@ -43,7 +41,7 @@ public class MainMenuCanvas implements Canvas {
         g.setFont(new Font("Century", 1, 100));
         g.setColor(Color.LIGHT_GRAY);
         g.drawString("BREAKOUT", 85, 145);
-        
+
         painter.paintMenu(g, 400, 330, menu, 20);
     }
 }

@@ -5,7 +5,8 @@ import gamestate.GameStateManager;
 import gamestate.GameStates;
 
 /**
- *
+ * Menu that handles the Main Menu options
+ * 
  * @author Joel
  */
 public final class MainMenu extends Menu {

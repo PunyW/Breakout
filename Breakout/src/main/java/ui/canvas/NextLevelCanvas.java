@@ -7,16 +7,19 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import static java.awt.SystemColor.menu;
-import util.menus.Menu;
 
 /**
- *
+ * Canvas which is handling the rendering of the Next Level State
+ * 
  * @author Joel
  */
 public class NextLevelCanvas implements Canvas {
     private final Player player;
 
+    /**
+     * Create new NextLevelCanvas
+     * @param breakout main game
+     */
     public NextLevelCanvas(Breakout breakout) {
         this.player = breakout.getPlayer();
     }

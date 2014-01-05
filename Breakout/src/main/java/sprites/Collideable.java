@@ -8,5 +8,9 @@ import java.awt.Rectangle;
  */
 public interface Collideable {
 
+    /**
+     *
+     * @return Returns a new Rectangle with the Sprites attributes
+     */
     Rectangle getCollisionRect();
 }

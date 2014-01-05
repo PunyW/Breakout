@@ -11,7 +11,8 @@ import java.awt.Graphics2D;
 import util.menus.Menu;
 
 /**
- *
+ * Canvas which is handling the rendering of the Game Over state
+ * 
  * @author Joel
  */
 public class GameOverCanvas implements Canvas {
@@ -20,8 +21,8 @@ public class GameOverCanvas implements Canvas {
     private final Menu menu;
 
     /**
-     * Create the canvas for game over scenario
-     *
+     * Create new GameOverCanvas
+     * 
      * @param breakout main game
      * @param gsm Game State Manager
      */
