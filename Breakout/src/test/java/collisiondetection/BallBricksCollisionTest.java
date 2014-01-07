@@ -55,6 +55,7 @@ public class BallBricksCollisionTest {
         ball = new Ball(89, 60, 15, 15);
         ball.launchBall();
         ball.setDx(-5);
+        ball.setDy(-5);
         cd.checkCollisions(bricks, ball, player);
         ball.move();
         testBrick(0, false);

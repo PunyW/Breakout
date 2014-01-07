@@ -72,7 +72,45 @@ public class Breakout extends Timer implements ActionListener {
         gsm = new GameStateManager(this);
         this.cd = new CollisionDetectionManager(width, height, paddle);
         addActionListener(this);
-        setInitialDelay(10);
+        setDelay(17);
+    }
+
+    public boolean running() {
+        return running;
+    }
+
+    public void setUpdatable(Updatable updatable) {
+        this.updatable = updatable;
+    }
+
+    // Game Loop
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (!running) {
+            return;
+        }
+
+        if (gsm.getState() == GameStates.PLAYSTATE) {
+            ball.move();
+            
+            // If ball isn't moving keep it on top of the paddle
+            if(!ball.moving()) {
+                ball.resetBall();
+            }
+
+            // Check for collisions, returns true if player has 0 lives left
+            if (cd.collisions(bricks, ball, player)) {
+                gsm.setState(GameStates.GAME_OVER);
+                paddle.undockPaddle();
+            }
+        }
+        if (bricksDestroyed()) {
+            ball.disableBall();
+            newLevel();
+            gsm.setState(GameStates.LEVEL_CLEARED);
+        }
+
+        this.updatable.update();
     }
 
     /**
@@ -102,42 +140,9 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 20);
     }
 
-    public boolean running() {
-        return running;
-    }
-
-    public void setUpdatable(Updatable updatable) {
-        this.updatable = updatable;
-    }
-
-    // Game Loop
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (!running) {
-            return;
-        }
-
-        if (gsm.getState() == GameStates.PLAYSTATE) {
-            ball.move();
-
-            // Check for collisions, returns true if player has 0 lives left
-            if (cd.collisions(bricks, ball, player)) {
-                gsm.setState(GameStates.GAME_OVER);
-                paddle.undockPaddle();
-            }
-        }
-        if(bricksDestroyed()) {
-            ball.disableBall();
-            newLevel();
-            gsm.setState(GameStates.LEVEL_CLEARED);
-        }
-
-        this.updatable.update();
-        setDelay(1000 / 20);
-    }
-
     /**
      * Check if all the bricks have been destroyed
+     *
      * @return returns false if some of the bricks still alive, true if all the
      * bricks have been destroyed
      */
