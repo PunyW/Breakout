@@ -48,6 +48,8 @@ public class HighScoreCanvas implements Canvas {
             g.drawString(hs.get(i).getScore() + "", 350, y);
             y += 30;
         }
+        
+        g.drawString("Press escape to return into the main menu", 100, 565);
     }
 
 }
