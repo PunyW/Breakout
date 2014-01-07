@@ -11,6 +11,7 @@ import sprites.Paddle;
 import ui.Updatable;
 import collisiondetection.CollisionDetectionManager;
 import gamestate.*;
+import util.highscore.HighScore;
 
 public class Breakout extends Timer implements ActionListener {
 
@@ -24,6 +25,7 @@ public class Breakout extends Timer implements ActionListener {
     private BrickCreator bc;
     private boolean running;
     private GameStateManager gsm;
+    private HighScore hs;
 
     /**
      * Constructor for the breakout game., paddle width set to 60 px.
@@ -71,6 +73,7 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager(this);
         this.cd = new CollisionDetectionManager(width, height, paddle);
+        this.hs = new HighScore();
         addActionListener(this);
         setDelay(17);
     }
@@ -104,13 +107,14 @@ public class Breakout extends Timer implements ActionListener {
                 paddle.undockPaddle();
             }
         }
+        
         if (bricksDestroyed()) {
             ball.disableBall();
             newLevel();
             gsm.setState(GameStates.LEVEL_CLEARED);
         }
 
-        this.updatable.update();
+        updatable.update();
     }
 
     /**
