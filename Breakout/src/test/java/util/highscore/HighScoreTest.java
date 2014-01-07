@@ -13,7 +13,7 @@ public class HighScoreTest {
     private HighScore hs;
 
     public HighScoreTest() {
-        hs = new HighScore();
+        hs = new HighScore("/resources/highscores_test.txt");
     }
 
     @Test

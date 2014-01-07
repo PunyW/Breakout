@@ -9,7 +9,7 @@ import util.menus.Menu;
 
 /**
  * Listens for player input
- * 
+ *
  * @author Joel
  */
 public class GameKeyListener implements KeyListener {
@@ -42,13 +42,12 @@ public class GameKeyListener implements KeyListener {
         // MENU OR GAME OVER
         if (gsm.getState() == GameStates.MENUSTATE || gsm.getState() == GameStates.GAME_OVER) {
             // Change menu to the correct one
-            if(gsm.getState() == GameStates.MENUSTATE) {
+            if (gsm.getState() == GameStates.MENUSTATE) {
                 currentMenu = gsm.getMenu(0);
             } else {
                 currentMenu = gsm.getMenu(1);
             }
-            
-            
+
             if (e.getKeyCode() == KeyEvent.VK_DOWN) {
                 currentMenu.increaseChoice();
             }
@@ -80,17 +79,18 @@ public class GameKeyListener implements KeyListener {
                 paddle.dockPaddle();
             }
         } // END OF PLAYSTATE
-        
+
         // LEVEL CLEARED
-        if(gsm.getState() == GameStates.LEVEL_CLEARED) {
-            if(e.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (gsm.getState() == GameStates.LEVEL_CLEARED) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 gsm.setState(GameStates.PLAYSTATE);
             }
         }
-        
-        // HELP
-        if(gsm.getState() == GameStates.HELP) {
-            if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+
+        // HELP AND HIGHSCORE
+        if (gsm.getState() == GameStates.HELP
+                || gsm.getState() == GameStates.HIGHSCORE) {
+            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 gsm.setState(GameStates.MENUSTATE);
             }
         }

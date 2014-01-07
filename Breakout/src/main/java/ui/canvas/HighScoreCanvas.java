@@ -20,7 +20,7 @@ public class HighScoreCanvas implements Canvas {
 
     /**
      * Create new High Score canvas
-     * 
+     *
      * @param breakout main game
      */
     public HighScoreCanvas(Breakout breakout) {

@@ -14,18 +14,18 @@ import java.util.ArrayList;
 public class HighScore {
     private ArrayList<Score> hs;
 
-    public HighScore() {
+    public HighScore(String filepath) {
         hs = new ArrayList<>();
-        getScores();
+        getScores(filepath);
     }
     
     /**
      * Get the old high scores from the file and add them into arraylist
      */
-    private void getScores() {
+    private void getScores(String filepath) {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(
-                    HighScore.class.getResourceAsStream("/resources/highscores.txt")));
+                    HighScore.class.getResourceAsStream(filepath)));
                     String line;
                     
                     // TOP 10
