@@ -16,13 +16,13 @@ public class HighScore {
 
     public HighScore() {
         hs = new ArrayList<>();
-        getScores("/resources/highscores.txt");
+        getScores();
     }
     
-    private void getScores(String filepath) {
+    private void getScores() {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(
-                    HighScore.class.getResourceAsStream(filepath)));
+                    HighScore.class.getResourceAsStream("/resources/highscores.txt")));
                     String line;
                     
                     // TOP 10
@@ -37,5 +37,8 @@ public class HighScore {
         }
     }
     
+    public ArrayList<Score> getHighScores() {
+        return hs;
+    }
     
 }

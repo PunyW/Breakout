@@ -11,7 +11,9 @@ import sprites.Paddle;
 import ui.Updatable;
 import collisiondetection.CollisionDetectionManager;
 import gamestate.*;
+import java.util.ArrayList;
 import util.highscore.HighScore;
+import util.highscore.Score;
 
 public class Breakout extends Timer implements ActionListener {
 
@@ -76,6 +78,7 @@ public class Breakout extends Timer implements ActionListener {
         this.hs = new HighScore();
         addActionListener(this);
         setDelay(17);
+        gsm.setState(GameStates.HIGHSCORE);
     }
 
     public boolean running() {
@@ -179,5 +182,9 @@ public class Breakout extends Timer implements ActionListener {
 
     public GameStateManager getGameStateManager() {
         return gsm;
+    }
+    
+    public ArrayList<Score> getHighScores() {
+        return hs.getHighScores();
     }
 }

@@ -13,6 +13,7 @@ import java.util.Map;
 import javax.swing.JPanel;
 import ui.canvas.Canvas;
 import ui.canvas.HelpCanvas;
+import ui.canvas.HighScoreCanvas;
 import ui.canvas.NextLevelCanvas;
 
 /**
@@ -54,6 +55,7 @@ public class CanvasManager extends JPanel implements Updatable {
         canvases.put(GameStates.GAME_OVER, new GameOverCanvas(breakout, gsm));
         canvases.put(GameStates.LEVEL_CLEARED, new NextLevelCanvas(breakout));
         canvases.put(GameStates.HELP, new HelpCanvas());
+        canvases.put(GameStates.HIGHSCORE, new HighScoreCanvas(breakout));
         bg = new BackgroundCanvas();
 
     }
