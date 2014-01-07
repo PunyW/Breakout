@@ -10,7 +10,7 @@ import sprites.Background;
  */
 public class BackgroundCanvas implements Canvas {
 
-    private Background bg;
+    private final Background bg;
 
     public BackgroundCanvas() {
         bg = new Background(0, 0, 640, 800);
@@ -18,7 +18,7 @@ public class BackgroundCanvas implements Canvas {
 
     @Override
     public void paint(Graphics g) {
-        g.drawImage(bg.getImage(), 0, 0, null);
+        g.drawImage(bg.getImage(), bg.getX(), bg.getY(), null);
     }
 
 }

@@ -5,11 +5,11 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- * Sprite to hold the background image
+ * Sprite that holds the help image
  * 
  * @author Joel
  */
-public class Background extends Sprite {
+public class Help extends Sprite {
 
     private BufferedImage image;
 
@@ -20,15 +20,15 @@ public class Background extends Sprite {
      * @param height image height
      * @param width image width
      */
-    public Background(int x, int y, int height, int width) {
+    public Help(int x, int y, int height, int width) {
         super(x, y, height, width);
-        setImage("/resources/bg_img.png");
+        setImage("/resources/help.png");
     }
 
     /**
      * Set the background image
-     * 
-     * @param path  file path to the image
+     *
+     * @param path file path to the image
      */
     public final void setImage(String path) {
         try {

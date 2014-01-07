@@ -8,33 +8,35 @@ import ui.canvas.MainMenuCanvas;
 import breakout.Breakout;
 import gamestate.*;
 import java.awt.Graphics;
+import java.util.HashMap;
+import java.util.Map;
 import javax.swing.JPanel;
+import ui.canvas.Canvas;
+import ui.canvas.HelpCanvas;
 import ui.canvas.NextLevelCanvas;
 
 /**
- * Canvas manager which is responsible for handling all the rendering of the game
- * 
+ * Canvas manager which is responsible for handling all the rendering of the
+ * game
+ *
  * @author Joel
  */
 public class CanvasManager extends JPanel implements Updatable {
 
     private final GameStateManager gsm;
-    private MainMenuCanvas menuCanvas;
-    private PlayCanvas playCanvas;
-    private PauseCanvas pauseCanvas;
-    private GameOverCanvas defeatCanvas;
     private BackgroundCanvas bg;
-    private NextLevelCanvas nextLCanvas;
+    private Map<GameStates, Canvas> canvases;
 
     /**
      * Construct canvas manager.
-     * 
+     *
      * @param breakout breakout the game
      * @param width frame width
      * @param height frame height
      */
     public CanvasManager(Breakout breakout, int width, int height) {
         this.gsm = breakout.getGameStateManager();
+        canvases = new HashMap<>();
         init(breakout, width, height);
     }
 
@@ -46,12 +48,13 @@ public class CanvasManager extends JPanel implements Updatable {
      * @param h frame height
      */
     private void init(Breakout breakout, int w, int h) {
-        menuCanvas = new MainMenuCanvas(breakout, gsm);
-        playCanvas = new PlayCanvas(breakout, w, h);
-        pauseCanvas = new PauseCanvas(h);
-        defeatCanvas = new GameOverCanvas(breakout, gsm);
+        canvases.put(GameStates.MENUSTATE, new MainMenuCanvas(breakout, gsm));
+        canvases.put(GameStates.PLAYSTATE, new PlayCanvas(breakout, w, h));
+        canvases.put(GameStates.PAUSE, new PauseCanvas(h));
+        canvases.put(GameStates.GAME_OVER, new GameOverCanvas(breakout, gsm));
+        canvases.put(GameStates.LEVEL_CLEARED, new NextLevelCanvas(breakout));
+        canvases.put(GameStates.HELP, new HelpCanvas());
         bg = new BackgroundCanvas();
-        nextLCanvas = new NextLevelCanvas(breakout);
 
     }
 
@@ -60,36 +63,14 @@ public class CanvasManager extends JPanel implements Updatable {
         super.paintComponent(g);
         bg.paint(g);
 
-        GameStates gameState = gsm.getState();
-        switch (gameState) {
-            case MENUSTATE:
-                menuCanvas.paint(g);
-                break;
-            case PLAYSTATE:
-                playCanvas.paint(g);
-                break;
-            case PAUSE:
-                playCanvas.paint(g);
-                pauseCanvas.paint(g);
-                break;
-            case GAME_OVER:
-                playCanvas.paint(g);
-                defeatCanvas.paint(g);
-                break;
-            case HELP:
-                paintHelp(g);
-                break;
-            case LEVEL_CLEARED:
-                nextLCanvas.paint(g);
-                break;
+        // If pause or game over state is active, render play first then current
+        if (gsm.getState() == GameStates.PAUSE
+                || gsm.getState() == GameStates.GAME_OVER) {
+            canvases.get(GameStates.PLAYSTATE).paint(g);
         }
+        canvases.get(gsm.getState()).paint(g);
+
         g.dispose();
-    }
-
-    private void paintHelp(Graphics g) {
-    }
-
-    private void paintEndScreen(Graphics g) {
     }
 
     /**
