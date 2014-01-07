@@ -31,7 +31,7 @@ public class MenuTest {
     
     @Test
     public void constructorWorking() {
-        assertEquals(3, menu.choices.size());
+        assertEquals(4, menu.choices.size());
         testChoice(0);
     }
     
@@ -43,7 +43,7 @@ public class MenuTest {
     
     @Test
     public void increaseChoiceWrapsAround() {
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 4; i++) {
             menu.increaseChoice();
         }
         testChoice(0);

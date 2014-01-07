@@ -63,7 +63,13 @@ public class MainMenuTest {
     @Test
     public void quitWorks() {
         exit.expectSystemExitWithStatus(0);
+        menu.start(3);
+    }
+    
+    @Test
+    public void highscoreWorks() {
         menu.start(2);
+        assertEquals(gsm.getState(), GameStates.HIGHSCORE);
     }
 
 }

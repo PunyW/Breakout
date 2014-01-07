@@ -45,7 +45,7 @@ public abstract class Menu {
     public void decreaseChoice() {
         currentChoice--;
         if (currentChoice <= -1) {
-            currentChoice = choices.size();
+            currentChoice = choices.size() - 1;
         }
     }
 

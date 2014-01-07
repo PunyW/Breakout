@@ -78,7 +78,6 @@ public class Breakout extends Timer implements ActionListener {
         this.hs = new HighScore();
         addActionListener(this);
         setDelay(17);
-        gsm.setState(GameStates.HIGHSCORE);
     }
 
     public boolean running() {

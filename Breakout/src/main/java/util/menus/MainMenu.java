@@ -20,6 +20,7 @@ public final class MainMenu extends Menu {
     protected void initChoices() {
         choices.add("New Game");
         choices.add("Help");
+        choices.add("High Score");
         choices.add("Quit Game");
     }
 
@@ -35,6 +36,10 @@ public final class MainMenu extends Menu {
     private void help() {
         gsm.setState(GameStates.HELP);
     }
+    
+    private void highscore() {
+        gsm.setState(GameStates.HIGHSCORE);
+    }
 
     @Override
     public void start(int choice) {
@@ -46,6 +51,9 @@ public final class MainMenu extends Menu {
                 help();
                 break;
             case 2:
+                highscore();
+                break;
+            case 3:
                 quitGame();
                 break;
         }
