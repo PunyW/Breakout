@@ -39,6 +39,7 @@ public class GameKeyListener implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        // MENU OR GAME OVER
         if (gsm.getState() == GameStates.MENUSTATE || gsm.getState() == GameStates.GAME_OVER) {
             // Change menu to the correct one
             if(gsm.getState() == GameStates.MENUSTATE) {
@@ -58,14 +59,16 @@ public class GameKeyListener implements KeyListener {
                 int choice = currentMenu.getCurrentChoice();
                 currentMenu.start(choice);
             }
-        }
+        } // END OF MENU OR GAME OVER
 
+        // PAUSE
         if (gsm.getState() == GameStates.PAUSE) {
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 gsm.setState(GameStates.PLAYSTATE);
             }
         }
 
+        // PLAYSTATE
         if (gsm.getState() == GameStates.PLAYSTATE) {
             if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
                 gsm.setState(GameStates.PAUSE);
@@ -76,11 +79,19 @@ public class GameKeyListener implements KeyListener {
                 ball.launchBall();
                 paddle.dockPaddle();
             }
-        }
+        } // END OF PLAYSTATE
         
+        // LEVEL CLEARED
         if(gsm.getState() == GameStates.LEVEL_CLEARED) {
             if(e.getKeyCode() == KeyEvent.VK_ENTER) {
                 gsm.setState(GameStates.PLAYSTATE);
+            }
+        }
+        
+        // HELP
+        if(gsm.getState() == GameStates.HELP) {
+            if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                gsm.setState(GameStates.MENUSTATE);
             }
         }
 

@@ -25,7 +25,7 @@ public class CanvasManager extends JPanel implements Updatable {
 
     private final GameStateManager gsm;
     private BackgroundCanvas bg;
-    private Map<GameStates, Canvas> canvases;
+    private final Map<GameStates, Canvas> canvases;
 
     /**
      * Construct canvas manager.
