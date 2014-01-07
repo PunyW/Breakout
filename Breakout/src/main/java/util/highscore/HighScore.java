@@ -19,6 +19,9 @@ public class HighScore {
         getScores();
     }
     
+    /**
+     * Get the old high scores from the file and add them into arraylist
+     */
     private void getScores() {
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(
@@ -37,8 +40,30 @@ public class HighScore {
         }
     }
     
+    public void checkForNewHighScore(int newScore) {
+        if(newScore > hs.get(9).getScore()) {
+            addNewHighScore(newScore);
+        }
+    }
+    
+    private void addNewHighScore(int newScore) {
+        for(int i = 0; i < 10; i++) {
+            if(newScore > hs.get(i).getScore()) {
+                Score temp = new Score(newScore);
+                hs.add(i, temp);
+                // Remove the 11th score from the list
+                hs.remove(10);
+                return;
+            }
+        }
+    }
+    
     public ArrayList<Score> getHighScores() {
         return hs;
     }
     
+    private void writeNewHighScores() {
+        
+        
+    }
 }
