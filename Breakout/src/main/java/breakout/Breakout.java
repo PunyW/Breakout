@@ -97,9 +97,9 @@ public class Breakout extends Timer implements ActionListener {
 
         if (gsm.getState() == GameStates.PLAYSTATE) {
             ball.move();
-            
+
             // If ball isn't moving keep it on top of the paddle
-            if(!ball.moving()) {
+            if (!ball.moving()) {
                 ball.resetBall();
             }
 
@@ -110,7 +110,7 @@ public class Breakout extends Timer implements ActionListener {
                 paddle.undockPaddle();
             }
         }
-        
+
         if (bricksDestroyed()) {
             ball.disableBall();
             newLevel();
@@ -183,7 +183,7 @@ public class Breakout extends Timer implements ActionListener {
     public GameStateManager getGameStateManager() {
         return gsm;
     }
-    
+
     public ArrayList<Score> getHighScores() {
         return hs.getHighScores();
     }

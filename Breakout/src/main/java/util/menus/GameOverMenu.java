@@ -24,6 +24,10 @@ public final class GameOverMenu extends Menu {
     private void quitGame() {
         System.exit(0);
     }
+    
+    private void highscores() {
+        gsm.setState(GameStates.HIGHSCORE);
+    }
 
     @Override
     public void start(int choice) {
@@ -32,6 +36,9 @@ public final class GameOverMenu extends Menu {
                 newGame();
                 break;
             case 1:
+                highscores();
+                break;
+            case 2:
                 quitGame();
                 break;
         }
@@ -41,6 +48,7 @@ public final class GameOverMenu extends Menu {
     @Override
     protected void initChoices() {
         choices.add("New Game");
+        choices.add("High Scores");
         choices.add("Quit Game");
     }
 

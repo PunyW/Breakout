@@ -1,8 +1,10 @@
 package util.highscore;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -13,32 +15,49 @@ import java.util.ArrayList;
 public class HighScore {
 
     private ArrayList<Score> hs;
-    private final String filepath;
+    private File file;
 
     public HighScore(String filepath) {
         hs = new ArrayList<>();
-        this.filepath = filepath;
-        getScores(filepath);
+        getFile(filepath);
+        getScores();
+    }
+
+    /**
+     * Get the high scores file
+     *
+     * @param filepath filepath for high scores table
+     */
+    private void getFile(String filepath) {
+        URL url = this.getClass().getResource(filepath);
+        file = new File(url.getFile());
     }
 
     /**
      * Get the old high scores from the file and add them into arraylist
      */
-    private void getScores(String filepath) {
-        try (BufferedReader in = new BufferedReader(new InputStreamReader(
-                HighScore.class.getResourceAsStream(filepath)))) {
-            String line;
+    private void getScores() {
+        FileReader fr;
 
-            // TOP 10
+        try {
+            fr = new FileReader(file);
+
+            BufferedReader br = new BufferedReader(fr);
+            String points;
+
+            //TOP 10
             for (int i = 0; i < 10; i++) {
-                line = in.readLine();
-                String[] score = line.split(" ");
-                Score temp = new Score(Integer.parseInt(score[1]));
+                points = br.readLine();
+                Score temp = new Score(Integer.parseInt(points));
                 hs.add(temp);
             }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
+
+            fr.close();
+
+        } catch (IOException | NumberFormatException ex) {
+            ex.printStackTrace();
         }
+
     }
 
     public void checkForNewHighScore(int newScore) {
@@ -58,7 +77,6 @@ public class HighScore {
             if (newScore > hs.get(i).getScore()) {
                 Score temp = new Score(newScore);
                 hs.add(i, temp);
-                writeNewHighScores();
                 return;
             }
         }
@@ -72,6 +90,6 @@ public class HighScore {
      * Write new high scores into the file
      */
     public void writeNewHighScores() {
-
+      
     }
 }

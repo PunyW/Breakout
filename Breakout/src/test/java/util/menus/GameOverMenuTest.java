@@ -52,6 +52,12 @@ public class GameOverMenuTest {
     @Test
     public void quitWorks() {
         exit.expectSystemExitWithStatus(0);
+        menu.start(2);
+    }
+    
+    @Test
+    public void highscoresWorks() {
         menu.start(1);
+        assertEquals(gsm.getState(), GameStates.HIGHSCORE);
     }
 }

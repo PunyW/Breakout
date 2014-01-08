@@ -59,6 +59,7 @@
                         <param>entities.Player*</param>
                         <param>collisiondetection.B*</param>
                         <param>util.menus.*</param>
+                        <param>util.highscore.*</param>
                     </targetClasses>
                     <targetTests>
                         <param>util.menus.*</param>
@@ -68,6 +69,8 @@
                         <param>sprites.Sprite*</param>
                         <param>entities.Player*</param>
                         <param>collisiondetection.B*</param>
+                        <param>util.menus.*</param>
+                        <param>util.highscore.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
