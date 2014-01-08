@@ -59,7 +59,7 @@
                         <param>entities.Player*</param>
                         <param>collisiondetection.B*</param>
                         <param>util.menus.*</param>
-                        <param>util.highscore.*</param>
+                        <param>util.highscore.Score*</param>
                     </targetClasses>
                     <targetTests>
                         <param>util.menus.*</param>
@@ -70,7 +70,7 @@
                         <param>entities.Player*</param>
                         <param>collisiondetection.B*</param>
                         <param>util.menus.*</param>
-                        <param>util.highscore.*</param>
+                        <param>util.highscore.Score*</param>
                     </targetTests>
                 </configuration>
             </plugin>
