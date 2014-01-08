@@ -6,4 +6,5 @@ sprites
 ui
 ui.canvas
 util
+util.highscore
 util.menus
