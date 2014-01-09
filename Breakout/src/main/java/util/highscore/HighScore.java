@@ -1,11 +1,15 @@
 package util.highscore;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * High Score listing, load the high scores from external file
@@ -18,8 +22,6 @@ public class HighScore {
     private File file;
 
     public HighScore(String filepath) {
-        hs = new ArrayList<>();
-        getFile(filepath);
         getScores();
     }
 
@@ -37,10 +39,11 @@ public class HighScore {
      * Get the old high scores from the file and add them into arraylist
      */
     private void getScores() {
+        hs = new ArrayList<>();
         FileReader fr;
 
         try {
-            fr = new FileReader(file);
+            fr = new FileReader("highscores.txt");
 
             BufferedReader br = new BufferedReader(fr);
             String points;
@@ -90,6 +93,21 @@ public class HighScore {
      * Write new high scores into the file
      */
     public void writeNewHighScores() {
+        try {
+            FileWriter fw = new FileWriter("highscores.txt");
+            
+            System.out.println("TESTI");
+            fw.write("");
+            for(int i = 0; i < 10; i++) {
+                
+            }
+            fw.flush();
+            fw.close();
+            
+        } catch (IOException ex) {
+            Logger.getLogger(HighScore.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Ei toimi");
+        }
         
     }
 }
