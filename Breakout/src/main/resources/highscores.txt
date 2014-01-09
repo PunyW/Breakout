@@ -1,10 +1,10 @@
 Name:1000
 Name:900
-Name:900
 Name:800
 Name:700
 Name:600
 Name:500
 Name:400
-Name:320
 Name:300
+Name:200
+Name:170

@@ -34,6 +34,7 @@ public class HighScore {
                 Score temp = new Score();
                 temp.setScore(newScore);
                 hs.add(i, temp);
+                writeHighScores();
                 return;
             }
         }

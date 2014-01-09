@@ -1,6 +1,7 @@
 package util.highscore;
 
 import java.util.ArrayList;
+import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;

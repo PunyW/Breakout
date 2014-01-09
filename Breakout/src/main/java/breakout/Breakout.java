@@ -108,7 +108,6 @@ public class Breakout extends Timer implements ActionListener {
                 hs.checkForNewHighScore(player.getScore());
                 gsm.setState(GameStates.GAME_OVER);
                 paddle.undockPaddle();
-                hs.writeHighScores();
             }
         }
 

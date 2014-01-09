@@ -43,18 +43,21 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.6</version>
                 <configuration>
                     <instrumentation>
-                        <includes>
-                            <include>breakout.entities/*.class</include>
-                            <include>breakout.util.menus/*.class</include>
-                            <include>breakout.util.highscore/Score*</include>
-                            <include>breakout.sprites/*.class</include>
-                            <include>breakout.collisiondetection/*.class</include>
-                        </includes>
+                        <ignores>
+                            <ignore>breakout.ui*</ignore>
+                            <ignore>breakout.util.Game*</ignore>
+                            <ignore>breakout.uitil.highscore.HighScoreWriter*</ignore>
+                            <ignore>breakout.gamestate.*</ignore>
+                        </ignores>
+                        <excludes>
+                            <exclude>breakout/*.class</exclude>
+                            <exclude>breakout/ui**/*.class</exclude>
+                        </excludes>
                     </instrumentation>
                 </configuration>
-                <version>2.6</version>
             </plugin>
             
             <plugin>
