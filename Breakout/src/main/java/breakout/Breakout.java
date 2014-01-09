@@ -75,7 +75,7 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager(this);
         this.cd = new CollisionDetectionManager(width, height, paddle);
-        this.hs = new HighScore("highscores.txt");
+        this.hs = new HighScore();
         addActionListener(this);
         setDelay(17);
     }
@@ -141,6 +141,10 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
     }
 
+    /**
+     * Create new level by creating new bricks, and resetting paddle and ball
+     * position
+     */
     public void newLevel() {
         paddle.reset();
         ball.resetBall();

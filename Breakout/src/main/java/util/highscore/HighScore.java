@@ -15,6 +15,11 @@ public class HighScore {
         HighScoreReader reader = new HighScoreReader();
         hs = reader.readScores(filepath);
     }
+    
+    public HighScore() {
+        HighScoreReader reader = new HighScoreReader();
+        hs = reader.readScores("/resources/highscores.txt");
+    }
 
     public void checkForNewHighScore(int newScore) {
         if (newScore > hs.get(9).getScore()) {

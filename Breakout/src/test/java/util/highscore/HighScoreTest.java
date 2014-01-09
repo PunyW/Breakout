@@ -1,7 +1,6 @@
 package util.highscore;
 
 import java.util.ArrayList;
-import org.junit.After;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +18,7 @@ public class HighScoreTest {
 
     @Before
     public void setUp() {
-        hs = new HighScore("highscores_test.txt");
+        hs = new HighScore("/resources/highscores_test.txt");
     }
 
     @Test

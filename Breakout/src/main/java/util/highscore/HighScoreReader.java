@@ -1,8 +1,10 @@
 package util.highscore;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +26,9 @@ public class HighScoreReader {
         FileReader fr;
 
         try {
-            fr = new FileReader(path);
+            URL url = this.getClass().getResource(path);
+            File file = new File(url.getFile());
+            fr = new FileReader(file);
             BufferedReader br = new BufferedReader(fr);
             String points;
 
@@ -32,9 +36,7 @@ public class HighScoreReader {
             for (int i = 0; i < 10; i++) {
                 points = br.readLine();
                 Score temp = new Score();
-                String[] split = points.split(":");
-                temp.setName(split[0]);
-                temp.setScore(Integer.parseInt(split[1]));
+                temp.setScore(Integer.parseInt(points));
                 scores.add(temp);
             }
 
