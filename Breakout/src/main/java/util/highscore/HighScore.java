@@ -90,6 +90,6 @@ public class HighScore {
      * Write new high scores into the file
      */
     public void writeNewHighScores() {
-      
+        
     }
 }
