@@ -7,15 +7,25 @@ package util.highscore;
  */
 public class Score {
 
-    private final int score;
+    private int score;
+    private String name;
 
-    /**
-     * Create new score
-     * 
-     * @param score how many points
-     */
-    public Score(int score) {
+    public Score() {
+        this.name = "Name";
+    }
+    
+    
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getScore() {

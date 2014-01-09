@@ -8,10 +8,11 @@ import static org.junit.Assert.*;
  * @author Joel
  */
 public class ScoreTest {
-    
+
     @Test
     public void testScore() {
-        Score score = new Score(10);
+        Score score = new Score();
+        score.setScore(10);
         assertEquals(10, score.getScore());
     }
 }

@@ -75,7 +75,7 @@ public class Breakout extends Timer implements ActionListener {
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager(this);
         this.cd = new CollisionDetectionManager(width, height, paddle);
-        this.hs = new HighScore("/resources/highscores.txt");
+        this.hs = new HighScore("highscores.txt");
         addActionListener(this);
         setDelay(17);
     }
@@ -108,7 +108,7 @@ public class Breakout extends Timer implements ActionListener {
                 hs.checkForNewHighScore(player.getScore());
                 gsm.setState(GameStates.GAME_OVER);
                 paddle.undockPaddle();
-                hs.writeNewHighScores();
+                hs.writeHighScores();
             }
         }
 
