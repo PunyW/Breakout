@@ -24,7 +24,7 @@ public class MainMenuTest {
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
     
-    private final MainMenu menu;
+    private final Menu menu;
     private final Breakout breakout;
     private final GameStateManager gsm;
     private final ArrayList<String> choices;
@@ -32,7 +32,7 @@ public class MainMenuTest {
     public MainMenuTest() {
         breakout = new Breakout(500, 500);
         gsm = new GameStateManager(breakout);
-        menu = new MainMenu(breakout, gsm);
+        menu = gsm.getMenu(0);
         choices = menu.getChoices();
     }
 

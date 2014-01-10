@@ -21,6 +21,11 @@ public class HighScore {
         hs = reader.readScores("/resources/highscores.txt");
     }
 
+    /**
+     * Check if the player got enough points to reach the high score table
+     * 
+     * @param newScore how many points the player got
+     */
     public void checkForNewHighScore(int newScore) {
         if (newScore > hs.get(9).getScore()) {
             addNewHighScore(newScore);

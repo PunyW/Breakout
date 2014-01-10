@@ -23,8 +23,7 @@ public class HighScoreWriter {
 
             fw.write("");
             for (int i = 0; i < 10; i++) {
-                fw.append(scores.get(i).getScore() + "");
-                fw.write(System.lineSeparator());
+                fw.append(scores.get(i).getScore() + "\n");
                 fw.flush();
             }
 

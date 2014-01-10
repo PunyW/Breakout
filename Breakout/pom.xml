@@ -46,15 +46,13 @@
                 <version>2.6</version>
                 <configuration>
                     <instrumentation>
-                        <ignores>
-                            <ignore>breakout.ui*</ignore>
-                            <ignore>breakout.util.Game*</ignore>
-                            <ignore>breakout.uitil.highscore.HighScoreWriter*</ignore>
-                            <ignore>breakout.gamestate.*</ignore>
-                        </ignores>
                         <excludes>
                             <exclude>breakout/*.class</exclude>
-                            <exclude>breakout/ui**/*.class</exclude>
+                            <exclude>ui/*.class</exclude>
+                            <exclude>ui/**/*.class</exclude>
+                            <exclude>util/*.class</exclude>
+                            <exclude>sprites/Back*</exclude>
+                            <exclude>sprites/Help*</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
@@ -63,7 +61,7 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>0.30</version>
+                <version>0.32</version>
                 <configuration>
                     <targetClasses>
                         <param>sprites.Ball*</param>

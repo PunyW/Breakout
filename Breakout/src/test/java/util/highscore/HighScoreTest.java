@@ -18,7 +18,7 @@ public class HighScoreTest {
 
     @Before
     public void setUp() {
-        hs = new HighScore("/resources/highscores_test.txt");
+        hs = new HighScore("/highscores_test.txt");
     }
 
     @Test

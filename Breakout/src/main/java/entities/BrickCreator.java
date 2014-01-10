@@ -4,27 +4,15 @@ import sprites.Brick;
 
 /**
  * Class that handles creating new bricks
- * 
+ *
  * @author Joel
  */
 public class BrickCreator {
 
-    private final int frameWidth, frameHeight;
-
     /**
      * Constructor for brick creator
-     * 
-     * @param width frame width
-     * @param height frame height
      */
-    public BrickCreator(int width, int height) {
-        frameWidth = width;
-        frameHeight = height;
-    }
-
     public BrickCreator() {
-        this.frameWidth = 0;
-        this.frameHeight = 0;
     }
 
     /**

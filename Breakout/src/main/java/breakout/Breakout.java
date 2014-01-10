@@ -71,7 +71,7 @@ public class Breakout extends Timer implements ActionListener {
      */
     private void init(int width, int height) {
         this.running = true;
-        bc = new BrickCreator(width, height);
+        bc = new BrickCreator();
         bricks = bc.createBricks(10, 15);
         gsm = new GameStateManager(this);
         this.cd = new CollisionDetectionManager(width, height, paddle);
@@ -127,7 +127,7 @@ public class Breakout extends Timer implements ActionListener {
     private void createGameObjects(int paddleWidth) {
         this.paddle = new Paddle(width / 2 - 30, height - 85, 20, paddleWidth, width);
         this.ball = new Ball(paddle);
-        this.player = new Player(1);
+        this.player = new Player(3);
     }
 
     /**
@@ -143,12 +143,15 @@ public class Breakout extends Timer implements ActionListener {
 
     /**
      * Create new level by creating new bricks, and resetting paddle and ball
-     * position
+     * position as well as resetting player lives to 3
      */
     public void newLevel() {
         paddle.reset();
         ball.resetBall();
         bricks = bc.createBricks(10, 20);
+        while(player.getLives() < 3) {
+            player.increaseLives();
+        }
     }
 
     /**

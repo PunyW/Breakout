@@ -23,7 +23,7 @@ public class GameOverMenuTest {
     @Rule
     public final ExpectedSystemExit exit = ExpectedSystemExit.none();
 
-    private final GameOverMenu menu;
+    private final Menu menu;
     private final Breakout breakout;
     private final GameStateManager gsm;
     private final ArrayList<String> choices;
@@ -31,7 +31,7 @@ public class GameOverMenuTest {
     public GameOverMenuTest() {
         breakout = new Breakout(500, 500);
         gsm = new GameStateManager(breakout);
-        menu = new GameOverMenu(breakout, gsm);
+        menu = gsm.getMenu(1);
         choices = menu.getChoices();
     }
 

@@ -14,7 +14,7 @@ import util.menus.Menu;
 public class GameStateManager {
 
     private GameStates currentState;
-    private ArrayList<Menu> menus;
+    private final ArrayList<Menu> menus;
 
     /**
      * Create new Game State Manager
