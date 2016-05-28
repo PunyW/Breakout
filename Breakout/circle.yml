@@ -1,0 +1,8 @@
+dependencies:
+  override:
+    - cd Breakout
+    - mvn install -Dmaven.test.skip=true
+test:
+  override:
+    - cd Breakout
+    - mvn test
