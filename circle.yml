@@ -1,0 +1,11 @@
+dependencies:
+  override:
+    - cd Breakout && mvn install -Dmaven.test.skip=true
+test:
+  override:
+    - cd Breakout && mvn cobertura:cobertura
+  post:
+    - curl http://www.jpm4j.org/install/script > jpmInstall.sh
+    - sudo sh jpmInstall.sh
+    - sudo jpm install com.codacy:codacy-coverage-reporter:assembly
+    - codacy-coverage-reporter -l Java -r Breakout/target/site/cobertura/coverage.xml

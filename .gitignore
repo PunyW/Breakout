@@ -1,3 +1,5 @@
 target/
 /Breakout/nbproject/private/
 /Breakout/nbproject/dist/
+.idea/
+Breakout/Breakout.iml
